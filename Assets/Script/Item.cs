@@ -2,16 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item
 {
+    public int id;
+    public string name;
+    public string description;
+    public Sprite icon;
+    public Dictionary<string, int> stats = new Dictionary<string, int>();
 
-    void Start()
+    public Item(int id, string name, string description, Dictionary<string, int> stats)
     {
-        
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.icon = icon;
+        this.stats = stats;
     }
 
-    void Update()
+    public Item(Item item)
     {
-        
+        this.id = item.id;
+        this.name = item.name;
+        this.description = item.description;
+        this.icon = item.icon;
+        this.stats = item.stats;
     }
 }
