@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
     #region Exposed
     [SerializeField] private SpriteRenderer _imageType;
     [SerializeField] private float _speed = 0.5f;
+    [SerializeField] private Image _fillImage;
     #endregion
 
     #region Event
@@ -86,7 +88,7 @@ public class EnemyController : MonoBehaviour
     {
         _health -= damages;
         OnHealthChange?.Invoke(_health);
-        Debug.Log("enemy health: "+_health);
+        _fillImage.fillAmount = _health / _maxHealth;
     }
 
     public void AttackHero()
@@ -108,7 +110,7 @@ public class EnemyController : MonoBehaviour
     {
         this._name = info._enemyName;
         this._type = info._enemyType;
-        this._health = info._enemyHealth != 0f ? info._enemyHealth : 10f;
+        this._maxHealth = this._health = info._enemyHealth != 0f ? info._enemyHealth : 10f;
         this._damage = info._enemyDamage != 0f ? info._enemyDamage : 5f;
         this._attackDelay = info._enemyAttackDelay != 0f ? info._enemyAttackDelay : 2f;
         _boxCollider.size = info._enemySize != 0f ? new Vector2(info._enemySize, _boxCollider.size.y) : _boxCollider.size;
@@ -123,6 +125,7 @@ public class EnemyController : MonoBehaviour
     #region Private & Protected
     private string _name;
     private EnemyType _type;
+    private float _maxHealth;
     private float _health;
     private float _damage;
     private float _attackDelay;
