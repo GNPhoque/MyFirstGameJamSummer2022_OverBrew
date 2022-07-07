@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class HeroController : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _attackDelay;
     [SerializeField] private LayerMask _enemyLayerMask;
+    [SerializeField] private Image _filleImage;
     #endregion
 
     #region Singleton
@@ -24,7 +26,7 @@ public class HeroController : MonoBehaviour
     #endregion
 
     #region Event
-    public event Action<float> OnHealthChange;
+    public event Action<float,float> OnHealthChange;
     #endregion
 
     #region Unity Lifecycle
@@ -48,7 +50,6 @@ public class HeroController : MonoBehaviour
     {
         float raycastLength = _boxCollider.size.x * 0.5f+.1f;
         RaycastHit2D hit = Physics2D.Raycast(_transform.position, Vector2.right, raycastLength, _enemyLayerMask);
-        Debug.DrawRay(_transform.position, Vector2.right * raycastLength, Color.cyan);
 
         if (hit.collider != null)
         {
@@ -74,9 +75,8 @@ public class HeroController : MonoBehaviour
     {
         _health -= damages;
         _health = Mathf.Clamp(_health, 0f, _maxHealth);
-        OnHealthChange?.Invoke(_health);
+        OnHealthChange?.Invoke(_health,_maxHealth);
 
-        Debug.Log("Hero health: " + _health);
     }
 
     public void Heal(float value)
