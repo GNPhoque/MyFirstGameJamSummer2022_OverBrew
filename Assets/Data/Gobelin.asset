@@ -18,4 +18,4 @@ MonoBehaviour:
   _enemyDamage: 0
   _enemyAttackDelay: 0
   _imageType: {fileID: 0}
-  _enemySize: 2
+  _enemySize: 0

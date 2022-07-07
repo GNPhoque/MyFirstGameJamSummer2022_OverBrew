@@ -32,8 +32,6 @@ public class EnemySpawner : MonoBehaviour
 
             Debug.DrawRay(_spawnPoint.position, Vector2.left * raycastLength, Color.red);
 
-            //Debug.Log(hit.collider.gameObject.name);
-
             if (hit.collider == null)
             {
                 SpawnEnemy();

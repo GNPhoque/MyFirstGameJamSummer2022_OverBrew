@@ -8,6 +8,9 @@ public class EnemyController : MonoBehaviour
 {
     #region Exposed
     [SerializeField] private SpriteRenderer _imageType;
+    [SerializeField] private float _health = 10f;
+    [SerializeField] private float _damage = 1f;
+    [SerializeField] private float _attackDelay = 1f;
     [SerializeField] private float _speed = 0.5f;
     [SerializeField] private Image _fillImage;
     #endregion
@@ -20,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
+        this._maxHealth = this._health;
         _rb = this.GetComponent<Rigidbody2D>();
         _boxCollider = this.GetComponent<BoxCollider2D>();
         this.TransitionToState(_walkingState);
@@ -108,11 +112,11 @@ public class EnemyController : MonoBehaviour
 
     public void SetParameters(EnemyInfo info)
     {
-        this._name = info._enemyName;
+        this.gameObject.name = this._name = info._enemyName;
         this._type = info._enemyType;
-        this._maxHealth = this._health = info._enemyHealth != 0f ? info._enemyHealth : 10f;
-        this._damage = info._enemyDamage != 0f ? info._enemyDamage : 5f;
-        this._attackDelay = info._enemyAttackDelay != 0f ? info._enemyAttackDelay : 2f;
+        if (info._enemyHealth != 0f) this._maxHealth = this._health = info._enemyHealth;
+        if (info._enemyDamage != 0f) this._damage = info._enemyDamage;
+        if (info._enemyAttackDelay != 0f) this._attackDelay = info._enemyAttackDelay;
         _boxCollider.size = info._enemySize != 0f ? new Vector2(info._enemySize, _boxCollider.size.y) : _boxCollider.size;
         if (info._imageType != null)
         {
@@ -126,9 +130,6 @@ public class EnemyController : MonoBehaviour
     private string _name;
     private EnemyType _type;
     private float _maxHealth;
-    private float _health;
-    private float _damage;
-    private float _attackDelay;
     private float _lastAttackTime;
     private Rigidbody2D _rb;
     private BoxCollider2D _boxCollider;
