@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     #endregion
 
+    #region Singleton
+    private static EnemySpawner _instance;
+    public static EnemySpawner Instance {
+        get {
+            return _instance;
+        }
+    }
+    #endregion
+
+    #region Events
+    public event Action OnVictory;
+    #endregion
+
     #region Unity Lifecycle
 
     void Awake()
     {
+        if (_instance == null) _instance = this;
+        else Destroy(gameObject);
         _enemyCollider = _enemyPrefab.GetComponent<BoxCollider2D>();
     }
 
@@ -36,6 +52,8 @@ public class EnemySpawner : MonoBehaviour
             {
                 SpawnEnemy();
             }
+        } else if(_spawnPoint.childCount == 0) {
+            OnVictory.Invoke();
         }
     }
 
