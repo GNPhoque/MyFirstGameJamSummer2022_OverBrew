@@ -11,4 +11,5 @@ public class EnemyInfo : ScriptableObject
     public float _enemyDamage;
     public float _enemyAttackDelay;
     public Sprite _imageType;
+    public float _enemySize;
 }

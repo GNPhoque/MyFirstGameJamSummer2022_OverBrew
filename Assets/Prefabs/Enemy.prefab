@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7164920182030384012}
   - component: {fileID: -1500706730777676768}
   - component: {fileID: 6481914135588817577}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226590137965469147}
   - component: {fileID: 1226590137965469146}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352825604290430135}
   - component: {fileID: 5794451541597059659}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
