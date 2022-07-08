@@ -12,4 +12,6 @@ public class CraftRecipe
         this.itemToCraft = itemToCraft;
         this.requiredItems = requiredItems;
     }
+
+
 }

@@ -32,14 +32,17 @@ public class HealerController : MonoBehaviour
 		inputs.Player.Move.performed += Move_performed;
 		inputs.Player.Move.canceled += Move_performed;
 		inputs.Player.Action1.performed += Action1_performed;
+        inputs.Player.Action1.canceled += Action1_canceled; 
 		inputs.Player.Enable();
 	}
 
-	private void OnDisable()
+    
+    private void OnDisable()
 	{
 		inputs.Player.Move.performed -= Move_performed;
 		inputs.Player.Move.canceled -= Move_performed;
 		inputs.Player.Action1.performed -= Action1_performed;
+		inputs.Player.Action1.canceled -= Action1_canceled;
 		inputs.Player.Disable();
 	}
 	private void Update()
@@ -47,6 +50,7 @@ public class HealerController : MonoBehaviour
 		currentMovementVector = Vector2.SmoothDamp(currentMovementVector, movementInput, ref smoothInputVelocity, smoothInputSpeed);
 		if (currentMovementVector != Vector2.zero) lastDirection = currentMovementVector.normalized;
 		Debug.DrawRay(rb.position, lastDirection.normalized, Color.red);
+		
 	}
 
 	private void FixedUpdate()
@@ -60,6 +64,7 @@ public class HealerController : MonoBehaviour
 		if (hit = Physics2D.Raycast(rb.position, lastDirection, interactionMaxRange, interactableLayerMask))
 		{
 			hit.collider.GetComponent<IInteractable>().Use();
+			inputs.Player.Move.Disable();
 		}
 	}
 
@@ -67,4 +72,9 @@ public class HealerController : MonoBehaviour
 	{
 		movementInput = obj.ReadValue<Vector2>();
 	}
+	private void Action1_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	{
+		inputs.Player.Move.Enable();
+	}
+
 }

@@ -3,5 +3,7 @@ public enum Ingredient
 	None,
 	Water,
 	Bone,
-	ToadBlood
+	BoneDust,
+	ToadBlood,
+	HealingPotion
 }

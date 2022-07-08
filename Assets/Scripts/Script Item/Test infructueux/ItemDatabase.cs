@@ -19,17 +19,17 @@ public class ItemDatabase : MonoBehaviour
     {
         items = new List<Item>()
         {
-            new Item(0,"fiole vide", "Une fiole vide en verre.",
+            new Item(1,"fiole vide", "Une fiole vide en verre.",
             new Dictionary<string, int>
             {
                 {"Value", 1 }
             }),
-            new Item(1,"Herbe Médicinale", "Une herbe qui permet de crée des potions de soin.",
+            new Item(2,"Herbe Médicinale", "Une herbe qui permet de crée des potions de soin.",
             new Dictionary<string, int>
             {
                 {"Value", 1 }
             }),
-            new Item(2,"Potion de Soin Mineur", "Une potion de soin permetant de soigner les blessures mineures.",
+            new Item(3,"Potion de Soin Mineur", "Une potion de soin permetant de soigner les blessures mineures.",
             new Dictionary<string, int>
             {
                 {"Healing Power", 15 }
