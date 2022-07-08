@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dd7b8860be673d47886fce03882d309, type: 3}
-  m_Name: Gobelin
+  m_Name: HugeGobelin
   m_EditorClassIdentifier: 
   _enemyName: 
   _enemyType: 0
@@ -18,4 +18,4 @@ MonoBehaviour:
   _enemyDamage: 0
   _enemyAttackDelay: 0
   _imageType: {fileID: 0}
-  _enemySize: 0
+  _enemySize: 3

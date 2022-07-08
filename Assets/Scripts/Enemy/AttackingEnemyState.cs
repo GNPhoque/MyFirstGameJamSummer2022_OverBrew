@@ -42,6 +42,10 @@ public class AttackingEnemyState : EnemyState
 
     public override void OnStateUpdate(EnemyController enemy)
     {
-        
+        enemy.AttackHero();
+        if(enemy.Health <= 0f)
+        {
+            enemy.TransitionToState(enemy._dyingState);
+        }
     }
 }
