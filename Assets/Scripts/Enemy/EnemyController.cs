@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class EnemyController : MonoBehaviour
 {
     #region Exposed
-    [SerializeField] private SpriteRenderer _imageType;
     [SerializeField] private float _health = 10f;
     [SerializeField] private float _damage = 1f;
     [SerializeField] private float _attackDelay = 1f;
     [SerializeField] private float _speed = 0.5f;
     [SerializeField] private Image _fillImage;
+    [SerializeField] private Image _afflictionImage;
     #endregion
 
     #region Event
@@ -104,6 +104,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void AffectHero() {
+        if (_affliction != null) {
+            HeroController.Instance.TakeAffliction(_affliction);
+            this._afflictionImage.enabled = false;
+        }
+    }
+
     public void Die()
     {
         gameObject.SetActive(false);
@@ -113,22 +120,23 @@ public class EnemyController : MonoBehaviour
     public void SetParameters(EnemyInfo info)
     {
         this.gameObject.name = this._name = info._enemyName;
-        this._type = info._enemyType;
+        //this._type = info._afflictionType;
+        if (info._affliction != null) {
+        _affliction = info._affliction;
+        this._afflictionImage.enabled = true;
+        this._afflictionImage.sprite = _affliction._afflictionImage;
+        }
         if (info._enemyHealth != 0f) this._maxHealth = this._health = info._enemyHealth;
         if (info._enemyDamage != 0f) this._damage = info._enemyDamage;
         if (info._enemyAttackDelay != 0f) this._attackDelay = info._enemyAttackDelay;
         _boxCollider.size = info._enemySize != 0f ? new Vector2(info._enemySize, _boxCollider.size.y) : _boxCollider.size;
-        if (info._imageType != null)
-        {
-            this._imageType.enabled = true;
-            this._imageType.sprite = info._imageType;
-        }
     }
     #endregion
 
     #region Private & Protected
     private string _name;
-    private EnemyType _type;
+    //private AfflictionType _type;
+    private Affliction _affliction;
     private float _maxHealth;
     private float _lastAttackTime;
     private Rigidbody2D _rb;

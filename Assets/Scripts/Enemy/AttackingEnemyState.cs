@@ -18,6 +18,7 @@ public class AttackingEnemyState : EnemyState
     {
         enemy.ChangeColor(Color.red);
         enemy.Stop();
+        enemy.AffectHero();
     }
 
     public override void OnStateExit(EnemyController enemy)

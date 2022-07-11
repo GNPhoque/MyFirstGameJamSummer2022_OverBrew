@@ -11,7 +11,6 @@ public class HeroController : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _attackDelay;
     [SerializeField] private LayerMask _enemyLayerMask;
-    [SerializeField] private Image _filleImage;
     #endregion
 
     #region Singleton
@@ -27,6 +26,8 @@ public class HeroController : MonoBehaviour
 
     #region Event
     public event Action<float,float> OnHealthChange;
+    public event Action OnHeroUpdate;
+    public event Action<List<Affliction>, List<Affliction>> OnEffectApplied;
     #endregion
 
     #region Unity Lifecycle
@@ -40,6 +41,10 @@ public class HeroController : MonoBehaviour
         _maxHealth = _health;
 
         _boxCollider = GetComponent<BoxCollider2D>();
+
+        // initalise values
+        _currentAttackDelay = _attackDelay;
+        _currentDamage = _damage;
     }
 
     void Start()
@@ -48,6 +53,8 @@ public class HeroController : MonoBehaviour
 
     void Update()
     {
+        OnHeroUpdate?.Invoke();
+
         float raycastLength = _boxCollider.size.x * 0.5f+.1f;
         RaycastHit2D hit = Physics2D.Raycast(_transform.position, Vector2.right, raycastLength, _enemyLayerMask);
 
@@ -71,28 +78,53 @@ public class HeroController : MonoBehaviour
 
     }
 
-    public void TakeDamage(float damages)
+    public void TakeDamage(float damage)
     {
-        _health -= damages;
-        _health = Mathf.Clamp(_health, 0f, _maxHealth);
-        OnHealthChange?.Invoke(_health,_maxHealth);
-
+        HealthModification(damage * _currentDamageTakenModifier);
     }
+    
 
     public void Heal(float value)
     {
-        TakeDamage(value * -1);
+        HealthModification(value * _currentHealModifier);
+    }
+
+    private void HealthModification(float value) {
+        _health -= value;
+         _health = Mathf.Clamp(_health, 0f, _maxHealth);
+        OnHealthChange?.Invoke(_health,_maxHealth);
+    }
+
+    public void TakeAffliction(Affliction affliction) {
+        if (_protectionList.Contains(affliction)) {
+            _protectionList.Remove(affliction);
+
+        } else if (!_afflictionList.Contains(affliction)) {
+            _afflictionList.Add(affliction);
+            affliction.ApplyAffliction();
+        }
+        OnEffectApplied?.Invoke(_protectionList, _afflictionList);
+    }
+
+    public void TakeProtection(Affliction protection) {
+        if (_afflictionList.Contains(protection)) {
+            _afflictionList.Remove(protection);
+            protection.RemoveAffliction();
+
+        } else if (!_protectionList.Contains(protection)) {
+            _protectionList.Add(protection);
+        }
+        OnEffectApplied?.Invoke(_protectionList, _afflictionList);
     }
 
     public void AttackEnemy(EnemyController enemyController)
     {
-        if (Time.time - _lastAttackTime >= _attackDelay)
+        if (Time.time - _lastAttackTime >= _currentAttackDelay)
         {
-            enemyController.TakeDamage(_damage);
+            enemyController.TakeDamage(_currentDamage);
             _lastAttackTime = Time.time;
         }
     }
-
 
     #endregion
 
@@ -101,10 +133,16 @@ public class HeroController : MonoBehaviour
     #endregion
 
     #region Private & Protected
+    private List<Affliction> _afflictionList = new List<Affliction>();
+    private List<Affliction> _protectionList = new List<Affliction>();
     private float _maxHealth;
     private float _lastAttackTime;
     private Transform _transform;
     private BoxCollider2D _boxCollider;
     private EnemyController _currentEnemyController;
+    [HideInInspector] public float _currentAttackDelay;
+    [HideInInspector] public float _currentDamage;
+    [HideInInspector] public float _currentHealModifier = -1;
+    [HideInInspector] public float _currentDamageTakenModifier = 1;
     #endregion
 }
