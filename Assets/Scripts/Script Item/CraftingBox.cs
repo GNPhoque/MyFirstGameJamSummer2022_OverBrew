@@ -6,6 +6,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
 {
     [SerializeField] private CraftingTableType _tableType;
     [SerializeField] private Ingredient _result;
+    [SerializeField] private float _craftingTimeStandingStill;
     [SerializeField] private float _craftingTime;
     private float _craftingRealTime;
     private bool _crafting;
@@ -13,6 +14,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
     [SerializeField] public Ingredient currentIngredient;
 
     PlayerInputActions playerInputActions;
+
     public bool Crafting { get => _crafting; set => _crafting = value; }
 
     private void Start()
@@ -20,9 +22,8 @@ public class CraftingBox : MonoBehaviour, IInteractable
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         _crafting = false;
-        _craftingRealTime = _craftingTime;
+        _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
     }
-
 
     public void Use()
     {
@@ -37,30 +38,42 @@ public class CraftingBox : MonoBehaviour, IInteractable
             //et dans ce timer verifier une fois le timer terminé quel est le resultat de la transformation
             //il peut recupéré l'ingredients
             //et que l'action est finie alors resultat bouillie;
-            if (_tableType == CraftingTableType.Mortar)
+           
+
+            switch (_tableType)
             {
-                if (GameManager.instance.Ingredient == Ingredient.Bone)
-                {
-                    _crafting = true;
-                   
-                }
+                case CraftingTableType.Mortar:
+                    if (GameManager.instance.Ingredient == Ingredient.Bone)
+                    {
+                        _crafting = true;
+                        
+                    }
+                    break;
+
+                case CraftingTableType.Pot:
+                    
+                    break;
+
+                case CraftingTableType.Still:
+                    
+                    break;
+                
+                default:
+                    Debug.Log("Default");
+                    break;
             }
 
-            //transformation de l'item
-
-            //currentIngredient = GameManager.instance.Ingredient;
         }
-
-        if (GameManager.instance.Ingredient != Ingredient.None && currentIngredient == Ingredient.Bone)
+        if (GameManager.instance.Ingredient == Ingredient.None && currentIngredient != Ingredient.None)
         {
-            //transformation de l'item avec timer
-            //currentIngredient = Ingredient.HealingPotion;
+            GameManager.instance.Ingredient = currentIngredient;
         }
 
-        if (GameManager.instance.Ingredient == Ingredient.None && currentIngredient == Ingredient.HealingPotion)
+
+        /*if (GameManager.instance.Ingredient == Ingredient.None && currentIngredient == Ingredient.HealingPotion)
         {
             GameManager.instance.Ingredient = Ingredient.HealingPotion;
-        }
+        }*/
     }
     ///si ingredient. == null alors rien
     ///si ingredient. ... != null alors transformation
@@ -75,8 +88,9 @@ public class CraftingBox : MonoBehaviour, IInteractable
         if (_craftingRealTime <= 0)
         {
             _crafting = false;
-            GameManager.instance.Ingredient = _result;
-            _craftingRealTime =_craftingTime ;
+            currentIngredient = _result;
+            GameManager.instance.Ingredient = Ingredient.None;
+            _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
         }
     }
 
