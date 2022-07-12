@@ -1,4 +1,4 @@
-public enum Ingredient
+/*public enum Ingredient
 {
 	None,
 	Water,
@@ -7,3 +7,8 @@ public enum Ingredient
 	ToadBlood,
 	HealingPotion
 }
+public enum Potion 
+{
+	None,
+	HealingPotion
+}*/

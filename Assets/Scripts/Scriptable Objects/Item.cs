@@ -2,9 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="ScriptableObject/Item")]
+
 public class Item : ScriptableObject
 {
-    public Ingredient itemName;
+    private int id;
+    public string itemName;
     public Sprite itemSprite;
+
+    public override bool Equals(object other)
+    {
+        if (other is Item)
+        {
+            return itemName == ((Item)other).itemName;
+        }
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+    public override string ToString()
+    {
+        return itemName;
+    }
 }

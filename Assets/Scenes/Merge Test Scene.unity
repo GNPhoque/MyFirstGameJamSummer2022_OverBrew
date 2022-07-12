@@ -269,6 +269,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mob Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
+      propertyPath: _enemyWave.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
+      propertyPath: _enemyWave.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: c9d9323a76d9d404c8d16f486df20893, type: 2}
     - target: {fileID: 7525594233654314182, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -708,8 +716,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8869715408421319050, guid: 14f00f58c5897e140887720003f86336, type: 3}
       propertyPath: ingredient
-      value: 2
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 11400000, guid: 11b59c6a3e4ca1c41b7baccddc64e9d0, type: 2}
     - target: {fileID: 8869715408421319051, guid: 14f00f58c5897e140887720003f86336, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2318,6 +2326,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 8479525513512417044, guid: 0203d3dbb3e2ece4f8f1e7e98314d93e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479525514275302735, guid: 0203d3dbb3e2ece4f8f1e7e98314d93e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0203d3dbb3e2ece4f8f1e7e98314d93e, type: 3}
 --- !u!4 &2080526372 stripped
@@ -2470,6 +2486,10 @@ PrefabInstance:
       propertyPath: _result
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1517622546423623741, guid: 0f70d41d092cca14cac203d46801b1a0, type: 3}
+      propertyPath: craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 4440641ae8b65fb499b9206e8888cf25, type: 2}
     - target: {fileID: 7485525963237519408, guid: 0f70d41d092cca14cac203d46801b1a0, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2533,6 +2553,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2133487353289178958, guid: cdd680d77e01d1e4b8cb4b358f1652fe, type: 3}
       propertyPath: _craftingTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133487353289178958, guid: cdd680d77e01d1e4b8cb4b358f1652fe, type: 3}
+      propertyPath: _craftingTimeStandingStill
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8031581627515584323, guid: cdd680d77e01d1e4b8cb4b358f1652fe, type: 3}
@@ -2654,9 +2678,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
+      propertyPath: _craftingTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
       propertyPath: craftingRecipe
       value: 
       objectReference: {fileID: 11400000, guid: 4440641ae8b65fb499b9206e8888cf25, type: 2}
+    - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
+      propertyPath: _craftingTimeStandingStill
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
+      propertyPath: craftingRecipeArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
+      propertyPath: craftingRecipeArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8889a47fd41770744a33f2719cf9c150, type: 2}
     - target: {fileID: 7559689840888621795, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2716,8 +2756,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8869715408421319050, guid: 14f00f58c5897e140887720003f86336, type: 3}
       propertyPath: ingredient
-      value: 1
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 11400000, guid: 64c2dca8beb93624b8bc30a3a1ffd9d4, type: 2}
     - target: {fileID: 8869715408421319051, guid: 14f00f58c5897e140887720003f86336, type: 3}
       propertyPath: m_RootOrder
       value: 3

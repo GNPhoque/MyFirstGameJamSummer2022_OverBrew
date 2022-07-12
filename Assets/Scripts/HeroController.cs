@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeroController : MonoBehaviour
+public class HeroController : MonoBehaviour,IInteractable
 {
     #region Exposed
     [SerializeField] private float _health;
@@ -107,6 +107,11 @@ public class HeroController : MonoBehaviour
     }
 
     public void TakeProtection(Affliction protection) {
+        if (protection is HealAffliction)
+        {
+            protection.ApplyAffliction();
+            return;
+        }
         if (_afflictionList.Contains(protection)) {
             _afflictionList.Remove(protection);
             protection.RemoveAffliction();
@@ -123,6 +128,15 @@ public class HeroController : MonoBehaviour
         {
             enemyController.TakeDamage(_currentDamage);
             _lastAttackTime = Time.time;
+        }
+    }
+
+    public void Use()
+    {
+        Item potion = GameManager.instance.CarriedItem;
+        if (potion !=null && potion is Potion)       
+        {
+            TakeProtection(((Potion)potion).protection);
         }
     }
 

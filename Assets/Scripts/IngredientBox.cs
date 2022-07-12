@@ -9,7 +9,7 @@ public class IngredientBox : MonoBehaviour, IInteractable
 
 	public void Use()
 	{
-		if (GameManager.instance.Ingredient == Ingredient.None)
-			GameManager.instance.Ingredient = ingredient;
+		if (GameManager.instance.CarriedItem == null)
+			GameManager.instance.CarriedItem = ingredient;
 	}
 }

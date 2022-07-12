@@ -6,6 +6,6 @@ public class Trash : MonoBehaviour, IInteractable
 {
 	public void Use()
 	{
-		GameManager.instance.Ingredient = Ingredient.None;
+		GameManager.instance.CarriedItem = null;
 	}
 }

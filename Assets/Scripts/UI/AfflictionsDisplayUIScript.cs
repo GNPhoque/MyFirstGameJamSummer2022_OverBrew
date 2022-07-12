@@ -43,6 +43,7 @@ public class AfflictionsDisplayUIScript : MonoBehaviour
         }
 
         foreach (Affliction protection in protections) {
+            
             GameObject effect = Instantiate(_protectionPrefab, _transform);
             effect.GetComponent<Image>().sprite = protection._afflictionImage;
         }

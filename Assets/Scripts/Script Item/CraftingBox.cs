@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
 
 public class CraftingBox : MonoBehaviour, IInteractable
 {
     [SerializeField] private float _craftingTimeStandingStill;
     [SerializeField] private float _craftingTime;
-    [SerializeField] private RecipeScriptableObject craftingRecipe;
+    [SerializeField] private RecipeScriptableObject[] craftingRecipeArray;
     [SerializeField] private List<Ingredient> currentIngredients;
+    private Potion _potion;
+    private RecipeScriptableObject _matchedRecipe;
 
     private float _craftingRealTime;
     private bool _crafting;
@@ -27,86 +31,97 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
     public void Use()
     {
-        if (GameManager.instance.Ingredient == Ingredient.None)
+        //check si on porte un ingredient
+        if (GameManager.instance.CarriedItem == null)
         {
             Debug.Log("Pas d'ingredient");
         }
-
-        if (GameManager.instance.Ingredient != Ingredient.None)
+        //check si l'object porter est un ingredient, si il n'est pas nul , et si la table n'est pas en train de craft
+        if (GameManager.instance.CarriedItem != null && GameManager.instance.CarriedItem is Ingredient && !_crafting)
         {
+            Ingredient carriedIngredient = (Ingredient)GameManager.instance.CarriedItem;
 
-            if (currentIngredients.Contains(GameManager.instance.Ingredient))
+            //chack si l'objet n'est pas deja dans la table
+            if (currentIngredients.Contains(carriedIngredient) || _potion !=null)
             {
                 Debug.Log("Objet deja dedans");
+                return;
             }
+
             else
             {
-                currentIngredients.Add(GameManager.instance.Ingredient);
-                GameManager.instance.Ingredient = Ingredient.None;
+                currentIngredients.Add(carriedIngredient);
+                GameManager.instance.CarriedItem = null;
             }
-            //check si l'ingredient est compatible avec la table de craft et demarrer le timer sauf pour le grinder
-            //et dans ce timer verifier une fois le timer terminé quel est le resultat de la transformation
-            //il peut recupéré l'ingredients
-            //et que l'action est finie alors resultat bouillie;
-        }
-        if (GameManager.instance.Ingredient == Ingredient.None)
-        {
-            if (currentIngredients != null && craftingRecipe != null)
+
+            //check si la recette est valide apres avoir mis l'ingredient qu'il avait dans les mains
+
+            foreach (RecipeScriptableObject recipe in craftingRecipeArray)
             {
-                List<Ingredient> currentRecipe = craftingRecipe.ingredients;
-                if (currentIngredients.Count == currentRecipe.Count)
+
+                if (currentIngredients != null && recipe != null)
                 {
-                    foreach (Ingredient ingredient in currentIngredients)
+                    List<Ingredient> currentIngredientRecipe = recipe.ingredients;
+                    if (currentIngredients.Count == currentIngredientRecipe.Count)
                     {
-                        if (currentRecipe.Contains(ingredient))
+                        int count = 0;
+                        for (int i = 0; i < currentIngredients.Count; i++)
                         {
-                            currentRecipe.Remove(ingredient);
+                            for (int j = 0; j < currentIngredientRecipe.Count; j++)
+                            {
+                                if(currentIngredients[i] == currentIngredientRecipe[j])
+                                {
+                                    count++;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (count == currentIngredientRecipe.Count)
+                        {
+                            _crafting = true;
+                            _matchedRecipe = recipe;
+                            break;
                         }
                     }
-                    if (currentRecipe.Count == 0)
+                    else
                     {
-                        _crafting = true;
+                        Debug.Log("Pas de recette avec ces éléments");
                     }
-                    Debug.Log(currentRecipe);
-                }
-                else
-                {
-                    Debug.Log("Pas de recette avec ces éléments");
                 }
             }
         }
 
-
-        if (GameManager.instance.Ingredient == Ingredient.None && currentIngredients.Contains(craftingRecipe.result))
+        //check si il y a une potion a prendre et si le joueur n'a pas d'objet dans les mains
+        if (GameManager.instance.CarriedItem == null && _potion != null)
         {
-            GameManager.instance.Ingredient = craftingRecipe.result;
-            currentIngredients.Clear();
+            GameManager.instance.CarriedItem = _potion;
+            _potion = null;
 
         }
 
-
-        /*if (GameManager.instance.Ingredient == Ingredient.None && currentIngredient == Ingredient.HealingPotion)
-        {
-            GameManager.instance.Ingredient = Ingredient.HealingPotion;
-        }*/
+   
     }
-    ///si ingredient. == null alors rien
-    ///si ingredient. ... != null alors transformation
-    ///si ingredient. ..!= null && craftingbox.ingredient != null alors tranformatioon en un item
-    ///si transformation fini alors on recupere l'item
 
     private void Update()
     {
         if (_crafting)
         {
             CraftingTimeStanding();
-        }
-        if (_craftingRealTime <= 0)
-        {
-            _crafting = false;
-            currentIngredients.Clear();
-            currentIngredients.Add(craftingRecipe.result);
-            _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
+
+            if (_craftingRealTime <= _craftingTime)
+            {
+                _craftingRealTime -= Time.deltaTime;
+            }
+
+            if (_craftingRealTime <= 0)
+            {
+                _crafting = false;
+                currentIngredients.Clear();
+                _potion = _matchedRecipe.result;
+                _matchedRecipe = null;
+                _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
+            }
         }
     }
 
@@ -117,9 +132,5 @@ public class CraftingBox : MonoBehaviour, IInteractable
             _craftingRealTime -= Time.deltaTime;
         }
     }
-    private void CraftingTime()
-    {
-        _craftingRealTime -= Time.deltaTime;
 
-    }
 }
