@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e0b3bd1db3c044abc8519b89601e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tableType: 0
-  _result: 3
-  _craftingTime: 2
-  currentIngredient: 0
+  _craftingTimeStandingStill: 1
+  _craftingTime: 0
+  craftingRecipeArray: []
+  currentIngredients: []

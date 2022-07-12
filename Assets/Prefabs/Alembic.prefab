@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8031581627515584321}
   - component: {fileID: 2133487353289178958}
   m_Layer: 6
-  m_Name: Still
+  m_Name: Alembic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,8 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e0b3bd1db3c044abc8519b89601e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tableType: 1
-  _result: 3
-  _craftingTimeStandingStill: 2
-  _craftingTime: 0
-  currentIngredient: 0
+  _craftingTimeStandingStill: 0
+  _craftingTime: 1
+  craftingRecipeArray: []
+  currentIngredients: []
