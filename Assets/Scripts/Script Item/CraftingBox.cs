@@ -51,17 +51,23 @@ public class CraftingBox : MonoBehaviour, IInteractable
         }
         if (GameManager.instance.Ingredient == Ingredient.None)
         {
-            if (currentIngredients != null && craftingRecipe!=null)
+            if (currentIngredients != null && craftingRecipe != null)
             {
-                if (currentIngredients.Count == craftingRecipe.ingredients.Count)
+                List<Ingredient> currentRecipe = craftingRecipe.ingredients;
+                if (currentIngredients.Count == currentRecipe.Count)
                 {
                     foreach (Ingredient ingredient in currentIngredients)
                     {
-                        if (craftingRecipe.ingredients.Contains(ingredient))
+                        if (currentRecipe.Contains(ingredient))
                         {
-                            _crafting = true;
+                            currentRecipe.Remove(ingredient);
                         }
                     }
+                    if (currentRecipe.Count == 0)
+                    {
+                        _crafting = true;
+                    }
+                    Debug.Log(currentRecipe);
                 }
                 else
                 {
@@ -71,11 +77,12 @@ public class CraftingBox : MonoBehaviour, IInteractable
         }
 
 
-        /*if (GameManager.instance.Ingredient == Ingredient.None && currentIngredients[0] != Ingredient.None)
+        if (GameManager.instance.Ingredient == Ingredient.None && currentIngredients.Contains(craftingRecipe.result))
         {
-            GameManager.instance.Ingredient = currentIngredients[0];
+            GameManager.instance.Ingredient = craftingRecipe.result;
+            currentIngredients.Clear();
 
-        }*/
+        }
 
 
         /*if (GameManager.instance.Ingredient == Ingredient.None && currentIngredient == Ingredient.HealingPotion)
@@ -92,7 +99,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
     {
         if (_crafting)
         {
-            CraftingTime();
+            CraftingTimeStanding();
         }
         if (_craftingRealTime <= 0)
         {
@@ -103,11 +110,16 @@ public class CraftingBox : MonoBehaviour, IInteractable
         }
     }
 
-    private void CraftingTime()
+    private void CraftingTimeStanding()
     {
         if (playerInputActions.Player.Action1.ReadValue<float>() > 0)
         {
             _craftingRealTime -= Time.deltaTime;
         }
+    }
+    private void CraftingTime()
+    {
+        _craftingRealTime -= Time.deltaTime;
+
     }
 }
