@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e088fa0fcef4de240a542f01432fb7b3, type: 3}
   m_Name: Frost
   m_EditorClassIdentifier: 
-  _afflictionImage: {fileID: 0}
+  _afflictionImage: {fileID: 21300000, guid: f5c666c2e354a2041b379933398c9272, type: 3}
   _damageTakenModifier: 1.33
