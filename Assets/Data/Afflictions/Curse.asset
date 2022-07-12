@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e1eb8cb4c3da549b77e757a548fb25, type: 3}
-  m_Name: HealingPotion
+  m_Script: {fileID: 11500000, guid: c1605be4e415721429d70f43cc0b840f, type: 3}
+  m_Name: Curse
   m_EditorClassIdentifier: 
-  itemName: HealingPotion
-  itemSprite: {fileID: 0}
-  protection: {fileID: 11400000, guid: c1f879c00b5c6ec47b80e3efddd87407, type: 2}
+  _afflictionImage: {fileID: 0}

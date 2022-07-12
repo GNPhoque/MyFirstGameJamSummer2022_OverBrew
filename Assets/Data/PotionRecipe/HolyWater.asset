@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1eb8cb4c3da549b77e757a548fb25, type: 3}
-  m_Name: HealingPotion
+  m_Name: HolyWater
   m_EditorClassIdentifier: 
-  itemName: HealingPotion
+  itemName: 
   itemSprite: {fileID: 0}
-  protection: {fileID: 11400000, guid: c1f879c00b5c6ec47b80e3efddd87407, type: 2}
+  protection: {fileID: 0}

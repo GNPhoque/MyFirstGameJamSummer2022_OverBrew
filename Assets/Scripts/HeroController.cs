@@ -86,7 +86,7 @@ public class HeroController : MonoBehaviour,IInteractable
 
     public void Heal(float value)
     {
-        HealthModification(value * _currentHealModifier);
+        HealthModification(-value /** _currentHealModifier*/);
     }
 
     private void HealthModification(float value) {
@@ -96,6 +96,11 @@ public class HeroController : MonoBehaviour,IInteractable
     }
 
     public void TakeAffliction(Affliction affliction) {
+        if (affliction is HealAffliction)
+        {
+            affliction.ApplyAffliction();
+            return;
+        }
         if (_protectionList.Contains(affliction)) {
             _protectionList.Remove(affliction);
 
@@ -109,7 +114,7 @@ public class HeroController : MonoBehaviour,IInteractable
     public void TakeProtection(Affliction protection) {
         if (protection is HealAffliction)
         {
-            protection.ApplyAffliction();
+            protection.RemoveAffliction();
             return;
         }
         if (_afflictionList.Contains(protection)) {
@@ -134,9 +139,13 @@ public class HeroController : MonoBehaviour,IInteractable
     public void Use()
     {
         Item potion = GameManager.instance.CarriedItem;
-        if (potion !=null && potion is Potion)       
+        if (potion !=null && potion is Potion)
         {
-            TakeProtection(((Potion)potion).protection);
+            Affliction protection = ((Potion)potion).protection;
+            if (_isCursed && !(protection is CurseAffliction)) TakeAffliction(protection);
+            else TakeProtection(protection);
+
+            GameManager.instance.CarriedItem = null;
         }
     }
 
@@ -151,12 +160,13 @@ public class HeroController : MonoBehaviour,IInteractable
     private List<Affliction> _protectionList = new List<Affliction>();
     private float _maxHealth;
     private float _lastAttackTime;
+    [HideInInspector] public bool _isCursed = false;
     private Transform _transform;
     private BoxCollider2D _boxCollider;
     private EnemyController _currentEnemyController;
     [HideInInspector] public float _currentAttackDelay;
     [HideInInspector] public float _currentDamage;
-    [HideInInspector] public float _currentHealModifier = -1;
+    //[HideInInspector] public float _currentHealModifier = -1;
     [HideInInspector] public float _currentDamageTakenModifier = 1;
     #endregion
 }
