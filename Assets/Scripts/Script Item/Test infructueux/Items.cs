@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public class Items
 {
-    public int id;
+    /*public int id;
     public string name;
     public string description;
     public Sprite icon;
     public Dictionary<string, int> stats = new Dictionary<string, int>();
 
-    public Item(int id, string name, string description, Dictionary<string, int> stats)
+    public Itemsint id, string name, string description, Dictionary<string, int> stats)
     {
         this.id = id;
         this.name = name;
@@ -19,12 +19,12 @@ public class Item
         this.stats = stats;
     }
 
-    public Item(Item item)
+    public Items(Item item)
     {
         this.id = item.id;
         this.name = item.name;
         this.description = item.description;
         this.icon = item.icon;
         this.stats = item.stats;
-    }
+    }*/
 }

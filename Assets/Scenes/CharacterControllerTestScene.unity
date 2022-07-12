@@ -1468,6 +1468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
+      propertyPath: craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 4440641ae8b65fb499b9206e8888cf25, type: 2}
     - target: {fileID: 7559689840888621795, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
       propertyPath: m_RootOrder
       value: 9

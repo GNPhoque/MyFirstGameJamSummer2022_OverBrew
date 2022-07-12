@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemDatabase : MonoBehaviour
 {
-    public List<Item> items = new List<Item>();
+   /* public List<Item> items = new List<Item>();
 
     private void Awake()
     {
@@ -35,5 +35,5 @@ public class ItemDatabase : MonoBehaviour
                 {"Healing Power", 15 }
             }),
         };
-    }
+    }*/
 }

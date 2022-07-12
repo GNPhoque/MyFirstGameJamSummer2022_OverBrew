@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CraftingBox : MonoBehaviour, IInteractable
-{
-    [SerializeField] private CraftingTableType _tableType;
-    [SerializeField] private Ingredient _result;
+{ 
     [SerializeField] private float _craftingTimeStandingStill;
     [SerializeField] private float _craftingTime;
     private float _craftingRealTime;
     private bool _crafting;
+    [SerializeField] private RecipeScriptableObject craftingRecipe;
 
-    [SerializeField] public Ingredient currentIngredient;
+    [SerializeField] private List<Ingredient> currentIngredients;
 
     PlayerInputActions playerInputActions;
 
@@ -21,6 +20,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
     {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+        currentIngredients = new List<Ingredient>();
         _crafting = false;
         _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
     }
@@ -34,39 +34,50 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
         if (GameManager.instance.Ingredient != Ingredient.None)
         {
+
+            if (currentIngredients.Contains(GameManager.instance.Ingredient))
+            {
+                Debug.Log("Objet deja dedans");
+            }
+            else
+            {
+                currentIngredients.Add(GameManager.instance.Ingredient);
+                GameManager.instance.Ingredient = Ingredient.None;
+            }
+
             //check si l'ingredient est compatible avec la table de craft et demarrer le timer sauf pour le grinder
+           
+
             //et dans ce timer verifier une fois le timer terminé quel est le resultat de la transformation
             //il peut recupéré l'ingredients
             //et que l'action est finie alors resultat bouillie;
-           
 
-            switch (_tableType)
+
+            
+        }
+        if(GameManager.instance.Ingredient == Ingredient.None)
+        {
+            if(currentIngredients.Count == craftingRecipe.ingredients.Count)
             {
-                case CraftingTableType.Mortar:
-                    if (GameManager.instance.Ingredient == Ingredient.Bone)
+                foreach (Ingredient ingredient in currentIngredients)
+                {
+                    if (craftingRecipe.ingredients.Contains(ingredient))
                     {
                         _crafting = true;
-                        
                     }
-                    break;
-
-                case CraftingTableType.Pot:
-                    
-                    break;
-
-                case CraftingTableType.Still:
-                    
-                    break;
-                
-                default:
-                    Debug.Log("Default");
-                    break;
+                }
             }
-
+            else
+            {
+                Debug.Log("Pas de recette avec ces éléments");
+            }
         }
-        if (GameManager.instance.Ingredient == Ingredient.None && currentIngredient != Ingredient.None)
+
+
+        if (GameManager.instance.Ingredient == Ingredient.None && currentIngredients[0] != Ingredient.None)
         {
-            GameManager.instance.Ingredient = currentIngredient;
+            GameManager.instance.Ingredient = currentIngredients[0];
+
         }
 
 
@@ -88,8 +99,8 @@ public class CraftingBox : MonoBehaviour, IInteractable
         if (_craftingRealTime <= 0)
         {
             _crafting = false;
-            currentIngredient = _result;
-            GameManager.instance.Ingredient = Ingredient.None;
+            currentIngredients.Clear();
+            currentIngredients.Add(craftingRecipe.result);
             _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
         }
     }
