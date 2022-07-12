@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e1eb8cb4c3da549b77e757a548fb25, type: 3}
   m_Name: Purify
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Purify
   itemSprite: {fileID: 0}
-  protection: {fileID: 0}
+  protection: {fileID: 11400000, guid: 0253e74960ea3084f8c9b62f62eb3e15, type: 2}
