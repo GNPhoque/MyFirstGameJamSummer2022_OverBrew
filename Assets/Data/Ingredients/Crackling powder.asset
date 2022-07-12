@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c154d6a7123002b40a04c71f123b8861, type: 3}
-  m_Name: Bone
+  m_Name: Crackling powder
   m_EditorClassIdentifier: 
-  itemName: Bone
+  itemName: Crackling powder
   itemSprite: {fileID: 0}

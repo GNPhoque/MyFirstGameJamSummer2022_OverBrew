@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c154d6a7123002b40a04c71f123b8861, type: 3}
-  m_Name: Water
+  m_Name: Steaming maceration
   m_EditorClassIdentifier: 
-  itemName: Water
+  itemName: Steaming maceration
   itemSprite: {fileID: 0}
