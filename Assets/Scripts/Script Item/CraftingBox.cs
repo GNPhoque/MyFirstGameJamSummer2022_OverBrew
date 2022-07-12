@@ -10,7 +10,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
     [SerializeField] private float _craftingTime;
     [SerializeField] private RecipeScriptableObject[] craftingRecipeArray;
     [SerializeField] private List<Ingredient> currentIngredients;
-    private Potion _potion;
+    private Item _craftingResult;
     private RecipeScriptableObject _matchedRecipe;
 
     private float _craftingRealTime;
@@ -42,7 +42,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
             Ingredient carriedIngredient = (Ingredient)GameManager.instance.CarriedItem;
 
             //chack si l'objet n'est pas deja dans la table
-            if (currentIngredients.Contains(carriedIngredient) || _potion !=null)
+            if (currentIngredients.Contains(carriedIngredient) || _craftingResult !=null)
             {
                 Debug.Log("Objet deja dedans");
                 return;
@@ -86,17 +86,17 @@ public class CraftingBox : MonoBehaviour, IInteractable
                     }
                     else
                     {
-                        Debug.Log("Pas de recette avec ces éléments");
+                        Debug.Log("Pas de recette avec ces ï¿½lï¿½ments");
                     }
                 }
             }
         }
 
         //check si il y a une potion a prendre et si le joueur n'a pas d'objet dans les mains
-        if (GameManager.instance.CarriedItem == null && _potion != null)
+        if (GameManager.instance.CarriedItem == null && _craftingResult != null)
         {
-            GameManager.instance.CarriedItem = _potion;
-            _potion = null;
+            GameManager.instance.CarriedItem = _craftingResult;
+            _craftingResult = null;
 
         }
 
@@ -118,7 +118,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
             {
                 _crafting = false;
                 currentIngredients.Clear();
-                _potion = _matchedRecipe.result;
+                _craftingResult = _matchedRecipe.result;
                 _matchedRecipe = null;
                 _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
             }

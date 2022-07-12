@@ -6,6 +6,6 @@ using UnityEngine;
 public class RecipeScriptableObject : ScriptableObject
 {
     public List<Ingredient> ingredients;
-    public Potion result;
+    public Item result;
     
 }
