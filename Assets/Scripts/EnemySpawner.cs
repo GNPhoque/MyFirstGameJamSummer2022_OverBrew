@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private EnemyInfo[] _enemyWave;
     [SerializeField] private Transform _spawnPoint;
+    
     #endregion
 
     #region Singleton

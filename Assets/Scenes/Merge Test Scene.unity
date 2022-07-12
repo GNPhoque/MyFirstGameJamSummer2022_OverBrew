@@ -1909,7 +1909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2133639284514321380, guid: c69bca7020a570d40848e4aad1adcf72, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2133639284514321380, guid: c69bca7020a570d40848e4aad1adcf72, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4105,6 +4105,10 @@ PrefabInstance:
     - target: {fileID: 6171814919204890988, guid: 2d00eeaf490772f42a841c4ef55be169, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171814919204890989, guid: 2d00eeaf490772f42a841c4ef55be169, type: 3}
+      propertyPath: moveSpeed
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d00eeaf490772f42a841c4ef55be169, type: 3}
