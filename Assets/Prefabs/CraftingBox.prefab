@@ -128,3 +128,4 @@ MonoBehaviour:
   _craftingTime: 0
   craftingRecipeArray: []
   currentIngredients: []
+  acceptOnlyBaseIngredient: 1

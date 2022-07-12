@@ -10,6 +10,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
     [SerializeField] private float _craftingTime;
     [SerializeField] private RecipeScriptableObject[] craftingRecipeArray;
     [SerializeField] private List<Ingredient> currentIngredients;
+    [SerializeField] private bool acceptOnlyBaseIngredient;
     private Item _craftingResult;
     private RecipeScriptableObject _matchedRecipe;
 
@@ -39,6 +40,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
         //check si l'object porter est un ingredient, si il n'est pas nul , et si la table n'est pas en train de craft
         if (GameManager.instance.CarriedItem != null && GameManager.instance.CarriedItem is Ingredient && !_crafting)
         {
+            if (acceptOnlyBaseIngredient && !(GameManager.instance.CarriedItem is BaseIngredient)) return;
             Ingredient carriedIngredient = (Ingredient)GameManager.instance.CarriedItem;
 
             //chack si l'objet n'est pas deja dans la table

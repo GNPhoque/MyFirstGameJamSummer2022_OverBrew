@@ -414,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135579195}
   m_Layer: 5
-  m_Name: Debug Buttons
+  m_Name: Debug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -439,8 +439,9 @@ RectTransform:
   - {fileID: 75636907}
   - {fileID: 593589524}
   - {fileID: 1179792535}
+  - {fileID: 1245728911}
   m_Father: {fileID: 950230236}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -465,27 +466,27 @@ PrefabInstance:
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: bf8fab64bb99108428a40dce3e3ce516, type: 2}
+      objectReference: {fileID: 11400000, guid: 3baf3496ed3290343a5f4c5615c776a3, type: 2}
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 5be8040e2c13d904dacefa709206f1d4, type: 2}
+      objectReference: {fileID: 11400000, guid: c9d9323a76d9d404c8d16f486df20893, type: 2}
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 4efc1ac54dc8ec24d808565797335d9c, type: 2}
+      objectReference: {fileID: 11400000, guid: c9d9323a76d9d404c8d16f486df20893, type: 2}
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: bf8fab64bb99108428a40dce3e3ce516, type: 2}
+      objectReference: {fileID: 11400000, guid: c9d9323a76d9d404c8d16f486df20893, type: 2}
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 5be8040e2c13d904dacefa709206f1d4, type: 2}
+      objectReference: {fileID: 11400000, guid: c9d9323a76d9d404c8d16f486df20893, type: 2}
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 4efc1ac54dc8ec24d808565797335d9c, type: 2}
+      objectReference: {fileID: 11400000, guid: c9d9323a76d9d404c8d16f486df20893, type: 2}
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[12]
       value: 
@@ -2089,7 +2090,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1245728911}
   - {fileID: 888202000}
   - {fileID: 135579195}
   - {fileID: 1182740807}
@@ -2918,17 +2918,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245728910}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 950230236}
-  m_RootOrder: 0
+  m_Father: {fileID: 135579195}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -94, y: -126.5}
+  m_AnchoredPosition: {x: 256, y: 48.499985}
   m_SizeDelta: {x: 353.5, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1245728912
@@ -4207,7 +4207,7 @@ PrefabInstance:
     - target: {fileID: 8869715408421319050, guid: 14f00f58c5897e140887720003f86336, type: 3}
       propertyPath: ingredient
       value: 
-      objectReference: {fileID: 11400000, guid: 588159532906c3440bce59559d1b43d8, type: 2}
+      objectReference: {fileID: 11400000, guid: 46bb3a716e0aeaf4f9b91848906c8de1, type: 2}
     - target: {fileID: 8869715408421319051, guid: 14f00f58c5897e140887720003f86336, type: 3}
       propertyPath: m_RootOrder
       value: 3

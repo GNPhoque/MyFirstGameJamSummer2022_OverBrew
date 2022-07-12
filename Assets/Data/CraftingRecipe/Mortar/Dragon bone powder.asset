@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dragon bone powder
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 11400000, guid: 588159532906c3440bce59559d1b43d8, type: 2}
+  - {fileID: 11400000, guid: 46bb3a716e0aeaf4f9b91848906c8de1, type: 2}
   result: {fileID: 11400000, guid: 7b0ed2b141c91624bb0a728a916cabf7, type: 2}

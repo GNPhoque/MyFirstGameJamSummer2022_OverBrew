@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c154d6a7123002b40a04c71f123b8861, type: 3}
+  m_Script: {fileID: 11500000, guid: b72254f3606e89746bbce8085b401f2a, type: 3}
   m_Name: Dragon bone
   m_EditorClassIdentifier: 
   itemName: Dragon bone
