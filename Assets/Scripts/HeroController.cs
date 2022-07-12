@@ -13,6 +13,11 @@ public class HeroController : MonoBehaviour,IInteractable
     [SerializeField] private LayerMask _enemyLayerMask;
     #endregion
 
+    #region Getters
+    public float AttackDelay { get => _attackDelay; }
+    #endregion
+
+
     #region Singleton
     private static HeroController _instance;
     public static HeroController Instance
