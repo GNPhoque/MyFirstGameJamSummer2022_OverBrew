@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd7b8860be673d47886fce03882d309, type: 3}
   m_Name: Medusa
   m_EditorClassIdentifier: 
-  _enemyName: poison Gobelin
+  _enemyName: Medusa
   _affliction: {fileID: 11400000, guid: 72b543c8a02df344688174fb4edc9994, type: 2}
   _enemyHealth: 0
   _enemyDamage: 0

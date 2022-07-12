@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd7b8860be673d47886fce03882d309, type: 3}
   m_Name: Ice gobelin
   m_EditorClassIdentifier: 
-  _enemyName: poison Gobelin
+  _enemyName: Ice Gobelin
   _affliction: {fileID: 11400000, guid: 4d6140eba63febf4e9a921c682d296bf, type: 2}
   _enemyHealth: 0
   _enemyDamage: 0
