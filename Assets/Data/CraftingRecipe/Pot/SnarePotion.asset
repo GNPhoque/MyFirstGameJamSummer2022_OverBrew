@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abd90bd8470de842af6eaa1daecb384, type: 3}
   m_Name: SnarePotion
   m_EditorClassIdentifier: 
-  ingredients: []
-  result: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: 2689dad91726ac24a8866bed1f6e77ba, type: 2}
+  - {fileID: 11400000, guid: 9e18074e579ca7c448fac5c2957ef9d1, type: 2}
+  - {fileID: 11400000, guid: 0217230893fd6a24880ca25a8521eb7c, type: 2}
+  result: {fileID: 11400000, guid: f1e131118f52b1d40b13c48c160e718f, type: 2}

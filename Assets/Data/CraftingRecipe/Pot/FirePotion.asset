@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abd90bd8470de842af6eaa1daecb384, type: 3}
   m_Name: FirePotion
   m_EditorClassIdentifier: 
-  ingredients: []
-  result: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: 1a952a925f05d194f9c016c9ceb3d107, type: 2}
+  - {fileID: 11400000, guid: 2689dad91726ac24a8866bed1f6e77ba, type: 2}
+  - {fileID: 11400000, guid: 4abaf4189a4abef4cb3b112b637cb8a3, type: 2}
+  result: {fileID: 11400000, guid: ba27fda2c1507394aa66b6e764cc259e, type: 2}

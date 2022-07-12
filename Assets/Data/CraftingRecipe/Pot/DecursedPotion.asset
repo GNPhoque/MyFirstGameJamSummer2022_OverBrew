@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abd90bd8470de842af6eaa1daecb384, type: 3}
   m_Name: DecursedPotion
   m_EditorClassIdentifier: 
-  ingredients: []
-  result: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: 7b0ed2b141c91624bb0a728a916cabf7, type: 2}
+  - {fileID: 11400000, guid: 4cadac8c501f56940b783e1805fd147c, type: 2}
+  - {fileID: 11400000, guid: f873c190ac4fde04daeb71893b8b8b89, type: 2}
+  result: {fileID: 11400000, guid: ab98be9db393b03498efc5242797757c, type: 2}

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abd90bd8470de842af6eaa1daecb384, type: 3}
   m_Name: FrostPotion
   m_EditorClassIdentifier: 
-  ingredients: []
-  result: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: 4abaf4189a4abef4cb3b112b637cb8a3, type: 2}
+  - {fileID: 11400000, guid: 7b0ed2b141c91624bb0a728a916cabf7, type: 2}
+  - {fileID: 11400000, guid: f873c190ac4fde04daeb71893b8b8b89, type: 2}
+  result: {fileID: 11400000, guid: ed967d3970349ec4caac4b12bf9a2999, type: 2}

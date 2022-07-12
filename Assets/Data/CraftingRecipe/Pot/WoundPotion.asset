@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abd90bd8470de842af6eaa1daecb384, type: 3}
   m_Name: WoundPotion
   m_EditorClassIdentifier: 
-  ingredients: []
-  result: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: 1a952a925f05d194f9c016c9ceb3d107, type: 2}
+  - {fileID: 11400000, guid: 0217230893fd6a24880ca25a8521eb7c, type: 2}
+  result: {fileID: 11400000, guid: 9592ce26f3d42cd4dabf3ff9d34edabe, type: 2}
