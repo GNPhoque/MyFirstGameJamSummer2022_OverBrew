@@ -16,6 +16,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
     private float _craftingRealTime;
     private bool _crafting;
+    private bool _boxInUse;
 
     PlayerInputActions playerInputActions;
 
@@ -32,6 +33,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
     public void Use()
     {
+        _boxInUse = true;
         //check si on porte un ingredient
         if (GameManager.instance.CarriedItem == null)
         {
@@ -105,11 +107,23 @@ public class CraftingBox : MonoBehaviour, IInteractable
    
     }
 
+    public void Release() {
+        _boxInUse = false;
+    }
+
+    public void Clean() {
+            currentIngredients.Clear();
+            _craftingResult = null;
+            _crafting = false;
+            _matchedRecipe = null;
+            _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
+    }
+
     private void Update()
     {
         if (_crafting)
         {
-            CraftingTimeStanding();
+            if (_boxInUse) _craftingRealTime -= Time.deltaTime;
 
             if (_craftingRealTime <= _craftingTime)
             {
@@ -124,14 +138,6 @@ public class CraftingBox : MonoBehaviour, IInteractable
                 _matchedRecipe = null;
                 _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
             }
-        }
-    }
-
-    private void CraftingTimeStanding()
-    {
-        if (playerInputActions.Player.Action1.ReadValue<float>() > 0)
-        {
-            _craftingRealTime -= Time.deltaTime;
         }
     }
 

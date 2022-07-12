@@ -154,6 +154,9 @@ public class HeroController : MonoBehaviour,IInteractable
         }
     }
 
+    public void Release(){}
+    public void Clean(){}
+
     #endregion
 
     #region Main methods

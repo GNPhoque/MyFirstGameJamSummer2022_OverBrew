@@ -8,4 +8,7 @@ public class Trash : MonoBehaviour, IInteractable
 	{
 		GameManager.instance.CarriedItem = null;
 	}
+
+	public void Release() {}
+	public void Clean() {}
 }

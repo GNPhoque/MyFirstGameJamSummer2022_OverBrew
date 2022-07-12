@@ -12,4 +12,7 @@ public class IngredientBox : MonoBehaviour, IInteractable
 		if (GameManager.instance.CarriedItem == null)
 			GameManager.instance.CarriedItem = ingredient;
 	}
+
+	public void Release() {}
+	public void Clean() {}
 }

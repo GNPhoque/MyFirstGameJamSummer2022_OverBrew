@@ -2510,7 +2510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5660427551310762410, guid: 7316c2373c26f864d8cf269137f56cfd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5660427551310762410, guid: 7316c2373c26f864d8cf269137f56cfd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3877,9 +3877,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1517622546423623741, guid: 0f70d41d092cca14cac203d46801b1a0, type: 3}
+      propertyPath: currentIngredients.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517622546423623741, guid: 0f70d41d092cca14cac203d46801b1a0, type: 3}
       propertyPath: craftingRecipeArray.Array.size
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1517622546423623741, guid: 0f70d41d092cca14cac203d46801b1a0, type: 3}
+      propertyPath: currentIngredients.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f873c190ac4fde04daeb71893b8b8b89, type: 2}
     - target: {fileID: 1517622546423623741, guid: 0f70d41d092cca14cac203d46801b1a0, type: 3}
       propertyPath: craftingRecipeArray.Array.data[0]
       value: 

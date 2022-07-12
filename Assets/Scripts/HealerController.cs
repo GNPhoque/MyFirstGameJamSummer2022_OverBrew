@@ -33,6 +33,8 @@ public class HealerController : MonoBehaviour
 		inputs.Player.Move.canceled += Move_performed;
 		inputs.Player.Action1.performed += Action1_performed;
         inputs.Player.Action1.canceled += Action1_canceled; 
+		inputs.Player.Action2.performed += Action2_performed;
+        inputs.Player.Action2.canceled += Action2_canceled; 
 		inputs.Player.Enable();
 	}
 
@@ -43,6 +45,8 @@ public class HealerController : MonoBehaviour
 		inputs.Player.Move.canceled -= Move_performed;
 		inputs.Player.Action1.performed -= Action1_performed;
 		inputs.Player.Action1.canceled -= Action1_canceled;
+		inputs.Player.Action2.performed -= Action2_performed;
+		inputs.Player.Action2.canceled -= Action2_canceled;
 		inputs.Player.Disable();
 	}
 	private void Update()
@@ -68,11 +72,31 @@ public class HealerController : MonoBehaviour
 		}
 	}
 
+	private void Action2_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	{
+		RaycastHit2D hit;
+		if (hit = Physics2D.Raycast(rb.position, lastDirection, interactionMaxRange, interactableLayerMask))
+		{
+			hit.collider.GetComponent<IInteractable>().Clean();
+			inputs.Player.Move.Disable();
+		}
+	}
+
 	private void Move_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
 	{
 		movementInput = obj.ReadValue<Vector2>();
 	}
 	private void Action1_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	{
+		RaycastHit2D hit;
+		if (hit = Physics2D.Raycast(rb.position, lastDirection, interactionMaxRange, interactableLayerMask))
+		{
+			hit.collider.GetComponent<IInteractable>().Release();
+			inputs.Player.Move.Enable();
+		}
+	}
+
+	private void Action2_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
 	{
 		inputs.Player.Move.Enable();
 	}

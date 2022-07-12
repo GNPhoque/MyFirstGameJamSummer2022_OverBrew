@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IInteractable
 {
 	public void Use();
+	public void Release();
+	public void Clean();
 }
