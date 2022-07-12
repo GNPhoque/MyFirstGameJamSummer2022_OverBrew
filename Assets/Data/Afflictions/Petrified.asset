@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Petrified
   m_EditorClassIdentifier: 
   _afflictionImage: {fileID: 21300000, guid: f280bbfc50fa36f40b615743d8a88408, type: 3}
-  _modifiedAttackDelay: 0
+  _modifiedAttackDelay: 9999

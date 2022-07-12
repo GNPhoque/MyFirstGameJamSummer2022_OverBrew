@@ -15,4 +15,4 @@ MonoBehaviour:
   _afflictionImage: {fileID: 21300000, guid: 0b9fda34549a79b48b8d19bda164c0b9, type: 3}
   _fireDamage: 3
   _fireDelay: 5
-  _damageTakenModifier: 4
+  _damageTakenModifier: 1.15
