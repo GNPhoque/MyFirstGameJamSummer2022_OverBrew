@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Afflictions/Freez")]
-public class FreezAfflication : Affliction
+[CreateAssetMenu(menuName = "Afflictions/Frost")]
+public class FrostAfflication : Affliction
 {
     [SerializeField] private float _damageTakenModifier;
 

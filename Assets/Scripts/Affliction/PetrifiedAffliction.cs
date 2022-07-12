@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Afflictions/Petrified")]
 public class PetrifiedAffliction : Affliction
 {
     [SerializeField] private float _modifiedAttackDelay;
