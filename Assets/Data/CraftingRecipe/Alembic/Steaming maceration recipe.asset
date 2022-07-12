@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c154d6a7123002b40a04c71f123b8861, type: 3}
-  m_Name: Entish's root
+  m_Script: {fileID: 11500000, guid: 2abd90bd8470de842af6eaa1daecb384, type: 3}
+  m_Name: Steaming maceration recipe
   m_EditorClassIdentifier: 
-  itemName: Entish's root
-  itemSprite: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: 50174d6239917c54c93ab3ff3fa56054, type: 2}
+  result: {fileID: 11400000, guid: 9e18074e579ca7c448fac5c2957ef9d1, type: 2}

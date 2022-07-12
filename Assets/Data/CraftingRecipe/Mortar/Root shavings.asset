@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2abd90bd8470de842af6eaa1daecb384, type: 3}
-  m_Name: New Recipe Scriptable Object
+  m_Name: Root shavings
   m_EditorClassIdentifier: 
-  ingredients: []
-  result: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: 62fac550dd62b9e4e8cc1b8134e9e45d, type: 2}
+  result: {fileID: 11400000, guid: 4cadac8c501f56940b783e1805fd147c, type: 2}
