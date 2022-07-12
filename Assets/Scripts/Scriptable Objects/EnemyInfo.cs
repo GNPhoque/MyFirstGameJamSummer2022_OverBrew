@@ -6,10 +6,11 @@ using UnityEngine;
 public class EnemyInfo : ScriptableObject
 {
     public string _enemyName;
-    public EnemyType _enemyType;
+    //public AfflictionType _afflictionType;
+    public Affliction _affliction;
     public float _enemyHealth;
     public float _enemyDamage;
     public float _enemyAttackDelay;
-    public Sprite _imageType;
+    //public Sprite _afflictionImage;
     public float _enemySize;
 }

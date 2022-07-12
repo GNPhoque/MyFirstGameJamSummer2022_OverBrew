@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dd7b8860be673d47886fce03882d309, type: 3}
-  m_Name: Gobelin
+  m_Name: Fire gobelin
   m_EditorClassIdentifier: 
-  _enemyName: 
-  _enemyType: 0
+  _enemyName: fire Gobelin
+  _affliction: {fileID: 11400000, guid: 9c14b264a6f3b634c9744664b39f251c, type: 2}
   _enemyHealth: 0
   _enemyDamage: 0
   _enemyAttackDelay: 0
-  _imageType: {fileID: 0}
   _enemySize: 0
