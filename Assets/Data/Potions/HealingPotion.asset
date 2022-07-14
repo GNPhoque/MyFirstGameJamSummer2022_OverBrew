@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HealingPotion
   m_EditorClassIdentifier: 
   itemName: HealingPotion
-  itemSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  itemSprite: {fileID: 21300000, guid: 12cebbc258534c740be2cfaa73db0cfc, type: 3}
   itemTransform: {fileID: 0}
   protection: {fileID: 11400000, guid: c1f879c00b5c6ec47b80e3efddd87407, type: 2}
