@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealerController : MonoBehaviour
 {
+	public static HealerController instance { get; private set; }
 	[SerializeField]
 	float moveSpeed;
 	[SerializeField]
@@ -20,9 +21,20 @@ public class HealerController : MonoBehaviour
 	Vector2 smoothInputVelocity;
 	Vector2 currentMovementVector;
 	Vector2 lastDirection;
+	public Item CarriedItem { get => carriedItem; set { carriedItem = value; currentItemText.text = "Current item : " + carriedItem; } }
+	private Item carriedItem;
+	[SerializeField]
+	TMPro.TMP_Text currentItemText;
 
 	private void Awake()
 	{
+		if (instance != null)
+		{
+			Destroy(gameObject);
+			return;
+		}
+		instance = this;
+
 		rb = GetComponent<Rigidbody2D>();
 		inputs = new PlayerInputActions();
 	}

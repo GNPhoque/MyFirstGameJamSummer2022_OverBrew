@@ -143,14 +143,15 @@ public class HeroController : MonoBehaviour,IInteractable
 
     public void Use()
     {
-        Item potion = GameManager.instance.CarriedItem;
+        Item potion = HealerController.instance.CarriedItem;
         if (potion !=null && potion is Potion)
         {
             Affliction protection = ((Potion)potion).protection;
             if (_isCursed && !(protection is CurseAffliction)) TakeAffliction(protection);
             else TakeProtection(protection);
 
-            GameManager.instance.CarriedItem = null;
+            Destroy(HealerController.instance.CarriedItem.itemTransform.gameObject);
+            HealerController.instance.CarriedItem = null;
         }
     }
 

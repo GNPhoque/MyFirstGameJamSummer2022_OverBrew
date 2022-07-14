@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Dragon marrow
   m_EditorClassIdentifier: 
   itemName: Dragon marrow
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  itemTransform: {fileID: 0}

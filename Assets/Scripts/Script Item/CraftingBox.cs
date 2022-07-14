@@ -10,6 +10,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
     [SerializeField] private float _craftingTime;
     [SerializeField] private RecipeScriptableObject[] craftingRecipeArray;
     [SerializeField] private List<Ingredient> currentIngredients;
+    [SerializeField] private Transform[] _ingredientSlots;
     [SerializeField] private bool acceptOnlyBaseIngredient;
     private Item _craftingResult;
     private RecipeScriptableObject _matchedRecipe;
@@ -35,17 +36,17 @@ public class CraftingBox : MonoBehaviour, IInteractable
     {
         _boxInUse = true;
         //check si on porte un ingredient
-        if (GameManager.instance.CarriedItem == null)
+        if (HealerController.instance.CarriedItem == null)
         {
             Debug.Log("Pas d'ingredient");
         }
         //check si l'object porter est un ingredient, si il n'est pas nul , et si la table n'est pas en train de craft
-        if (GameManager.instance.CarriedItem != null && GameManager.instance.CarriedItem is Ingredient && !_crafting)
+        if (HealerController.instance.CarriedItem != null && HealerController.instance.CarriedItem is Ingredient && !_crafting)
         {
-            if (acceptOnlyBaseIngredient && !(GameManager.instance.CarriedItem is BaseIngredient)) return;
-            Ingredient carriedIngredient = (Ingredient)GameManager.instance.CarriedItem;
+            if (acceptOnlyBaseIngredient && !(HealerController.instance.CarriedItem is BaseIngredient)) return;
+            Ingredient carriedIngredient = (Ingredient)HealerController.instance.CarriedItem;
 
-            //chack si l'objet n'est pas deja dans la table
+            //chack si l'objet n'est pas deja dans la table ou s'il y a resultat de craft
             if (currentIngredients.Contains(carriedIngredient) || _craftingResult !=null)
             {
                 Debug.Log("Objet deja dedans");
@@ -54,8 +55,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
             else
             {
-                currentIngredients.Add(carriedIngredient);
-                GameManager.instance.CarriedItem = null;
+                AddItemInSlot(carriedIngredient, false);
             }
 
             //check si la recette est valide apres avoir mis l'ingredient qu'il avait dans les mains
@@ -96,10 +96,12 @@ public class CraftingBox : MonoBehaviour, IInteractable
             }
         }
 
-        //check si il y a une potion a prendre et si le joueur n'a pas d'objet dans les mains
-        if (GameManager.instance.CarriedItem == null && _craftingResult != null)
+        //check si il y a une potion/ingredient a prendre et si le joueur n'a pas d'objet dans les mains
+        if (HealerController.instance.CarriedItem == null && _craftingResult != null)
         {
-            GameManager.instance.CarriedItem = _craftingResult;
+            _craftingResult.itemTransform.parent = HealerController.instance.transform;
+            _craftingResult.itemTransform.localPosition = Vector3.zero;
+            HealerController.instance.CarriedItem = _craftingResult;
             _craftingResult = null;
 
         }
@@ -111,12 +113,50 @@ public class CraftingBox : MonoBehaviour, IInteractable
         _boxInUse = false;
     }
 
+    private void AddItemInSlot(Item item, bool isCraftingResult) {        
+        for (int i = 0; i < _ingredientSlots.Length; i++)
+        {
+            if (_ingredientSlots[i].childCount == 0) {
+                // add game object in slot ingredient
+                if (item.itemTransform != null) {
+                    item.itemTransform.parent = _ingredientSlots[i];
+                    item.itemTransform.localPosition = Vector3.zero;
+                } else {
+                    GameObject ingredientGo = Instantiate(new GameObject(), _ingredientSlots[i]);
+                    SpriteRenderer ingredientSpriteRenderer = ingredientGo.AddComponent<SpriteRenderer>();
+                    ingredientSpriteRenderer.sprite = item.itemSprite;
+                    ingredientSpriteRenderer.sortingOrder = 1;
+                    
+                    item.itemTransform = ingredientGo.transform;
+                }
+
+                // add ingredient in list or Ingredient/potion as crafting result
+                if (!isCraftingResult) {
+                    currentIngredients.Add((Ingredient)item);
+                } else {
+                    _craftingResult = item;
+                }
+                HealerController.instance.CarriedItem = null;
+                break;
+            }
+        }
+    }
+
+
     public void Clean() {
             currentIngredients.Clear();
             _craftingResult = null;
             _crafting = false;
-            _matchedRecipe = null;
+            //_matchedRecipe = null;
             _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
+
+            for (int i = 0; i < _ingredientSlots.Length; i++)
+            {
+                foreach (Transform child in _ingredientSlots[i])
+                {
+                    Destroy(child.gameObject);
+                }
+            }
     }
 
     private void Update()
@@ -132,11 +172,8 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
             if (_craftingRealTime <= 0)
             {
-                _crafting = false;
-                currentIngredients.Clear();
-                _craftingResult = _matchedRecipe.result;
-                _matchedRecipe = null;
-                _craftingRealTime = _craftingTimeStandingStill + _craftingTime;
+                Clean();
+                AddItemInSlot(_matchedRecipe.result, true);
             }
         }
     }

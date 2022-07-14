@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     private int id;
     public string itemName;
     public Sprite itemSprite;
+    [HideInInspector] public Transform itemTransform;
 
     public override bool Equals(object other)
     {

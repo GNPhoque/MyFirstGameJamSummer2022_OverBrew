@@ -5,12 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance { get; private set; }
-	public Item CarriedItem { get => carriedItem; set { carriedItem = value; currentItemText.text = "Current item : " + carriedItem; } }
+	/*public Item CarriedItem { get => carriedItem; set { carriedItem = value; *.text = "Current item : " + carriedItem; } }
 
 	[SerializeField]
 	TMPro.TMP_Text currentItemText;
 
-	private Item carriedItem;
+	private Item carriedItem;*/
 
 	private void Awake()
 	{
