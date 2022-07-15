@@ -11,6 +11,8 @@ public class CraftingBox : MonoBehaviour, IInteractable
     [SerializeField] private RecipeScriptableObject[] craftingRecipeArray;
     [SerializeField] private List<Ingredient> currentIngredients;
     [SerializeField] private Transform[] _ingredientSlots;
+    [SerializeField] private Transform _craftingResultSlot;
+    [SerializeField] private GameObject _ingredientGraphicPrefab;
     [SerializeField] private bool acceptOnlyBaseIngredient;
     private Item _craftingResult;
     private RecipeScriptableObject _matchedRecipe;
@@ -55,7 +57,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
             else
             {
-                AddItemInSlot(carriedIngredient, false);
+                AddItemInSlot(carriedIngredient);
             }
 
             //check si la recette est valide apres avoir mis l'ingredient qu'il avait dans les mains
@@ -113,34 +115,29 @@ public class CraftingBox : MonoBehaviour, IInteractable
         _boxInUse = false;
     }
 
-    private void AddItemInSlot(Item item, bool isCraftingResult) {        
+    private void AddItemInSlot(Ingredient ingredient) {        
         for (int i = 0; i < _ingredientSlots.Length; i++)
         {
             if (_ingredientSlots[i].childCount == 0) {
                 // add game object in slot ingredient
-                if (item.itemTransform != null) {
-                    item.itemTransform.parent = _ingredientSlots[i];
-                    item.itemTransform.localPosition = Vector3.zero;
-                } else {
-                    GameObject ingredientGo = Instantiate(new GameObject(), _ingredientSlots[i]);
-                    SpriteRenderer ingredientSpriteRenderer = ingredientGo.AddComponent<SpriteRenderer>();
-                    ingredientSpriteRenderer.sprite = item.itemSprite;
-                    ingredientSpriteRenderer.sortingOrder = 1;
-                    ingredientGo.transform.localScale = new Vector3(2,2,1);
-                    
-                    item.itemTransform = ingredientGo.transform;
-                }
-
-                // add ingredient in list or Ingredient/potion as crafting result
-                if (!isCraftingResult) {
-                    currentIngredients.Add((Ingredient)item);
-                } else {
-                    _craftingResult = item;
-                }
+                ingredient.itemTransform.parent = _ingredientSlots[i];
+                ingredient.itemTransform.localPosition = Vector3.zero;
+                currentIngredients.Add((Ingredient)ingredient);
                 HealerController.instance.CarriedItem = null;
                 break;
             }
         }
+    }
+
+    private void AddResultInSlot(Item result) {
+        GameObject ingredientGraphic = Instantiate(_ingredientGraphicPrefab, _craftingResultSlot);
+        SpriteRenderer ingredientSpriteRenderer = ingredientGraphic.GetComponent<SpriteRenderer>();
+        ingredientSpriteRenderer.sprite = result.itemSprite;
+        /*ingredientSpriteRenderer.sortingOrder = 1;
+        ingredientGraphic.transform.localScale = new Vector3(2,2,1);*/
+        
+        result.itemTransform = ingredientGraphic.transform;
+        _craftingResult = result;
     }
 
 
@@ -174,7 +171,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
             if (_craftingRealTime <= 0)
             {
                 Clean();
-                AddItemInSlot(_matchedRecipe.result, true);
+                AddResultInSlot(_matchedRecipe.result);
             }
         }
     }
