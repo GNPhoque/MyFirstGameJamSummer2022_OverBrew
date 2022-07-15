@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PoisonPotion
   m_EditorClassIdentifier: 
   itemName: Poison Potion
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: dbeb68f3b65b6d54383eb68e0d569759, type: 3}
+  itemTransform: {fileID: 0}
   protection: {fileID: 11400000, guid: 0253e74960ea3084f8c9b62f62eb3e15, type: 2}

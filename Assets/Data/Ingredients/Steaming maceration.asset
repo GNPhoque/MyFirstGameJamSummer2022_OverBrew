@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Steaming maceration
   m_EditorClassIdentifier: 
   itemName: Steaming maceration
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: e4a0bb2f612d25545b72b689b8e4914d, type: 3}
+  itemTransform: {fileID: 0}

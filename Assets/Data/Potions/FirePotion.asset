@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: FirePotion
   m_EditorClassIdentifier: 
   itemName: Fire Potion
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: c864bcc6915329f41ab74296bb812fa9, type: 3}
+  itemTransform: {fileID: 0}
   protection: {fileID: 11400000, guid: 9c14b264a6f3b634c9744664b39f251c, type: 2}

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Crystalline powder
   m_EditorClassIdentifier: 
   itemName: Crystalline powder
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: bfa675c87ffdb504eb267163011ac5a0, type: 3}
+  itemTransform: {fileID: 0}

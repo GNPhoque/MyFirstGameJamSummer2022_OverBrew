@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Frozen rose
   m_EditorClassIdentifier: 
   itemName: Frozen rose
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 3a56d9c0ee3a6bd43be95b553c86489f, type: 3}
+  itemTransform: {fileID: 0}

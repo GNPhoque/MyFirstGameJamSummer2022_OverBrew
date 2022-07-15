@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dragon bone powder
   m_EditorClassIdentifier: 
   itemName: Dragon bone powder
-  itemSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  itemSprite: {fileID: 21300000, guid: 49db085f20f444a4b9a4934813292ea4, type: 3}
   itemTransform: {fileID: 0}

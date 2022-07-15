@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Entish root
   m_EditorClassIdentifier: 
   itemName: Entish root
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: e66e085eb07c047469c3fb871c1da044, type: 3}
+  itemTransform: {fileID: 0}

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: FrostPotion
   m_EditorClassIdentifier: 
   itemName: Frost potion
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 248b16e72e73d7d438b07efacca07a3b, type: 3}
+  itemTransform: {fileID: 0}
   protection: {fileID: 11400000, guid: 4d6140eba63febf4e9a921c682d296bf, type: 2}

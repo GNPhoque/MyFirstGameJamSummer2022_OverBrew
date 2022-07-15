@@ -126,6 +126,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
                     SpriteRenderer ingredientSpriteRenderer = ingredientGo.AddComponent<SpriteRenderer>();
                     ingredientSpriteRenderer.sprite = item.itemSprite;
                     ingredientSpriteRenderer.sortingOrder = 1;
+                    ingredientGo.transform.localScale = new Vector3(2,2,1);
                     
                     item.itemTransform = ingredientGo.transform;
                 }
