@@ -64,7 +64,7 @@ public class HeroController : MonoBehaviour,IInteractable
     void Update()
     {
         if (_health <= 0) {
-            OnDefeat.Invoke();
+            OnDefeat?.Invoke();
             Time.timeScale = 0;
         }
         OnHeroUpdate?.Invoke();
