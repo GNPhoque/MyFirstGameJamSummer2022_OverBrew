@@ -20,6 +20,7 @@ public class EndGamePanelScript : MonoBehaviour
     void Start()
     {
         EnemySpawner.Instance.OnVictory += DisplayVictoryUI;
+        HeroController.Instance.OnDefeat += DisplayDefeatUI;
     }
 
     void Update()
