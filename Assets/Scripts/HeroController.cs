@@ -109,6 +109,7 @@ public class HeroController : MonoBehaviour,IInteractable
     public void Heal(float value)
     {
         HealthModification(-value /** _currentHealModifier*/);
+        soundManager.SoundHeal();
     }
 
     private void HealthModification(float value) {
