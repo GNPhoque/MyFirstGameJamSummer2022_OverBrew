@@ -121,8 +121,8 @@ public class HealerController : MonoBehaviour
 		if (hit = Physics2D.Raycast(rb.position, lastDirection, interactionMaxRange, interactableLayerMask))
 		{
 			hit.collider.GetComponent<IInteractable>().Release();
-			inputs.Player.Move.Enable();
 		}
+		inputs.Player.Move.Enable();
 	}
 
 	private void Action2_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
