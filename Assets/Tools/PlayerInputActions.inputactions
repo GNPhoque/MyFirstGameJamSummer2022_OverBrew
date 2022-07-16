@@ -255,7 +255,18 @@
                 {
                     "name": "",
                     "id": "164f6d8c-1a72-461c-bafa-1f1d0e418740",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b203ef3c-cf81-48c8-9f6c-8c1ce29ce744",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

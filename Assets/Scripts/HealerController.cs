@@ -13,6 +13,8 @@ public class HealerController : MonoBehaviour
 	float interactionMaxRange;
 	[SerializeField]
 	LayerMask interactableLayerMask;
+	[SerializeField]
+	SlideScript slidablePanel;
 
 	Rigidbody2D rb;
 	SpriteRenderer _spriteRenderer;
@@ -50,7 +52,9 @@ public class HealerController : MonoBehaviour
 		inputs.Player.Action1.performed += Action1_performed;
         inputs.Player.Action1.canceled += Action1_canceled; 
 		inputs.Player.Action2.performed += Action2_performed;
-        inputs.Player.Action2.canceled += Action2_canceled; 
+        inputs.Player.Action2.canceled += Action2_canceled;
+		inputs.Player.Action3.performed += Action3_performed;
+		inputs.Player.Action3.canceled += Action3_canceled;
 		inputs.Player.Enable();
 	}
 
@@ -119,6 +123,15 @@ public class HealerController : MonoBehaviour
 	private void Action2_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
 	{
 		inputs.Player.Move.Enable();
+	}
+
+	private void Action3_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	{
+		slidablePanel.Slide();
+	}
+
+	private void Action3_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	{
 	}
 
 	/*public void TakeItem(Item item) {
