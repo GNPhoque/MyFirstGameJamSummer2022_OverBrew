@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SnarePotion
   m_EditorClassIdentifier: 
   itemName: Snare Potion
-  itemSprite: {fileID: 21300000, guid: f088345ef467bd04697d15f4cb4ab81e, type: 3}
+  itemSprite: {fileID: 21300000, guid: 09384c9b747a8b74185c4f54aa2f7e91, type: 3}
   itemTransform: {fileID: 0}
   protection: {fileID: 11400000, guid: a3ebc16cfae8fa948be1b61061ee6f37, type: 2}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PetrifiedPotion
   m_EditorClassIdentifier: 
   itemName: Petri Potion
-  itemSprite: {fileID: 21300000, guid: 53d8b3b85b07c1a4399293523618e621, type: 3}
+  itemSprite: {fileID: 21300000, guid: efd1d575fa117cc499d44132f47cee46, type: 3}
   itemTransform: {fileID: 0}
   protection: {fileID: 11400000, guid: 72b543c8a02df344688174fb4edc9994, type: 2}

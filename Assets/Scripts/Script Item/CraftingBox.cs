@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class CraftingBox : MonoBehaviour, IInteractable
@@ -13,6 +14,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
     [SerializeField] private Transform[] _ingredientSlots;
     [SerializeField] private Transform _craftingResultSlot;
     [SerializeField] private GameObject _ingredientGraphicPrefab;
+    [SerializeField] private GameObject _craftProgressBar;
     [SerializeField] private bool acceptOnlyBaseIngredient;
     private Item _craftingResult;
     private RecipeScriptableObject _matchedRecipe;
@@ -101,6 +103,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
         //check si il y a une potion/ingredient a prendre et si le joueur n'a pas d'objet dans les mains
         if (HealerController.instance.CarriedItem == null && _craftingResult != null)
         {
+            //HealerController.instance.TakeItem(_craftingResult);
             _craftingResult.itemTransform.parent = HealerController.instance.transform;
             _craftingResult.itemTransform.localPosition = Vector3.zero;
             HealerController.instance.CarriedItem = _craftingResult;
@@ -142,6 +145,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
 
     public void Clean() {
+            _craftProgressBar.SetActive(false);
             currentIngredients.Clear();
             _craftingResult = null;
             _crafting = false;
@@ -161,12 +165,16 @@ public class CraftingBox : MonoBehaviour, IInteractable
     {
         if (_crafting)
         {
+
+            if (!_craftProgressBar.activeSelf) _craftProgressBar.SetActive(true);
             if (_boxInUse) _craftingRealTime -= Time.deltaTime;
 
             if (_craftingRealTime <= _craftingTime)
             {
                 _craftingRealTime -= Time.deltaTime;
             }
+
+            _craftProgressBar.transform.GetChild(0).GetComponent<Image>().fillAmount = _craftingRealTime;
 
             if (_craftingRealTime <= 0)
             {

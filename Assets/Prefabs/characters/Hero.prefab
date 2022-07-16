@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7850702819806418906}
   - component: {fileID: 1190049790}
   - component: {fileID: 1190049793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hero
   m_TagString: Hero
   m_Icon: {fileID: 0}
@@ -47,15 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cfff43b3510bd4a8256b8274ad96a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  _damage: 3
+  _health: 50
+  _damage: 2
   _attackDelay: 1
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 2147483648
+  _isCursed: 0
   _currentAttackDelay: 0
   _currentDamage: 0
-  _currentHealModifier: -1
   _currentDamageTakenModifier: 1
 --- !u!50 &1190049790
 Rigidbody2D:

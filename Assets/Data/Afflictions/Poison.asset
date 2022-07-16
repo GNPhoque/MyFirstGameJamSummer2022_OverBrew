@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30428aa12735ecc40aca6cadb583f6c7, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
-  _afflictionImage: {fileID: 21300000, guid: 73a8dfde78895674ebeed03007fd66b9, type: 3}
+  _afflictionImage: {fileID: 21300000, guid: eaf1cf13293d1b24c831a6f1347d087c, type: 3}
   _poisonDamage: 5
   _poisonDelay: 5

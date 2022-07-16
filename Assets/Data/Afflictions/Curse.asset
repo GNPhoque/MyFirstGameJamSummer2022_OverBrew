@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1605be4e415721429d70f43cc0b840f, type: 3}
   m_Name: Curse
   m_EditorClassIdentifier: 
-  _afflictionImage: {fileID: 21300000, guid: ec23e33668eecff4aaec16f735dcc204, type: 3}
+  _afflictionImage: {fileID: 21300000, guid: 041e8ce2ecd7d8a43ba34d21b60efb7e, type: 3}

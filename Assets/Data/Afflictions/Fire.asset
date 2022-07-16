@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce2a8d8023d7b44b962fe63fa40ee57, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  _afflictionImage: {fileID: 21300000, guid: 0b9fda34549a79b48b8d19bda164c0b9, type: 3}
+  _afflictionImage: {fileID: 21300000, guid: 3d56e423e921fbd41b5af0f8c89f7c67, type: 3}
   _fireDamage: 3
   _fireDelay: 5
   _damageTakenModifier: 1.15

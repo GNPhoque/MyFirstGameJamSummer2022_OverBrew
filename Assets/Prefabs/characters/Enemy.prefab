@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
-  _damage: 1
+  _damage: 1.5
   _attackDelay: 1
   _speed: 2
   _fillImage: {fileID: 5546857357858303938}

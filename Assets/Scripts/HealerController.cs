@@ -15,6 +15,8 @@ public class HealerController : MonoBehaviour
 	LayerMask interactableLayerMask;
 
 	Rigidbody2D rb;
+	SpriteRenderer _spriteRenderer;
+    Animator _animator;
 	PlayerInputActions inputs;
 
 	Vector2 movementInput;
@@ -35,6 +37,8 @@ public class HealerController : MonoBehaviour
 		}
 		instance = this;
 
+		_spriteRenderer = this.GetComponent<SpriteRenderer>();
+        _animator = this.GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		inputs = new PlayerInputActions();
 	}
@@ -66,6 +70,10 @@ public class HealerController : MonoBehaviour
 		currentMovementVector = Vector2.SmoothDamp(currentMovementVector, movementInput, ref smoothInputVelocity, smoothInputSpeed);
 		if (currentMovementVector != Vector2.zero) lastDirection = currentMovementVector.normalized;
 		Debug.DrawRay(rb.position, lastDirection.normalized, Color.red);
+
+		if (currentMovementVector.x < 0) _spriteRenderer.flipX = true;
+		else _spriteRenderer.flipX = false;
+		_animator.SetFloat("speed", currentMovementVector.magnitude);
 		
 	}
 
@@ -111,6 +119,19 @@ public class HealerController : MonoBehaviour
 	private void Action2_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
 	{
 		inputs.Player.Move.Enable();
+	}
+
+	/*public void TakeItem(Item item) {
+		if (CarriedItem == null) {
+			item.itemTransform.parent = this.transform;
+			item.itemTransform.localPosition = Vector3.zero;
+			CarriedItem = item;
+		}
+	}*/
+
+	public void DropItem() {
+		if (CarriedItem.itemTransform != null) Destroy(CarriedItem.itemTransform.gameObject);
+        CarriedItem = null;
 	}
 
 }

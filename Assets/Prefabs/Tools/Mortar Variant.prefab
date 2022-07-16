@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7559689840888621797, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
       propertyPath: m_Name
-      value: Mortar
+      value: Mortar Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8975226600221269464, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
       propertyPath: m_Size.x

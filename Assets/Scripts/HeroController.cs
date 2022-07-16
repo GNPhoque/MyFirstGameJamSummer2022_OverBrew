@@ -150,8 +150,7 @@ public class HeroController : MonoBehaviour,IInteractable
             if (_isCursed && !(protection is CurseAffliction)) TakeAffliction(protection);
             else TakeProtection(protection);
 
-            Destroy(HealerController.instance.CarriedItem.itemTransform.gameObject);
-            HealerController.instance.CarriedItem = null;
+            HealerController.instance.DropItem();
         }
     }
 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DecursePotion
   m_EditorClassIdentifier: 
   itemName: Decurse Potion
-  itemSprite: {fileID: 21300000, guid: 03209096d1347844487191004aaa63e7, type: 3}
+  itemSprite: {fileID: 21300000, guid: 75d343b1cadd857469fd87a2add13b14, type: 3}
   itemTransform: {fileID: 0}
   protection: {fileID: 11400000, guid: 549d7e57d5adfa04799792940c6408e1, type: 2}

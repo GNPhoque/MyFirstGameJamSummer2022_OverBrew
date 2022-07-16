@@ -6,8 +6,7 @@ public class Trash : MonoBehaviour, IInteractable
 {
 	public void Use()
 	{
-		Destroy(HealerController.instance.CarriedItem.itemTransform.gameObject);
-		HealerController.instance.CarriedItem = null;
+		HealerController.instance.DropItem();
 	}
 
 	public void Release() {}
