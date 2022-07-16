@@ -329,6 +329,22 @@ PrefabInstance:
       propertyPath: m_Colors.m_DisabledColor.a
       value: 0.16862746
       objectReference: {fileID: 0}
+    - target: {fileID: 2997341402086331205, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2997341402086331205, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2997341402086331205, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1736390489381513899, guid: 17ed7e6043c402e44927522649913a4e, type: 3}
+    - target: {fileID: 2997341402086331205, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2997341402086331206, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

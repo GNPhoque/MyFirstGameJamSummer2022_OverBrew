@@ -38,11 +38,15 @@ public class HeroController : MonoBehaviour,IInteractable
     public event Action OnHeroUpdate;
     public event Action<List<Affliction>, List<Affliction>> OnEffectApplied;
     #endregion
+    
+    SoundManager soundManager;
 
     #region Unity Lifecycle
 
     void Awake()
     {
+        soundManager = FindObjectOfType<SoundManager>();
+
         if (_instance == null) _instance = this;
         else Destroy(gameObject);
 
@@ -166,6 +170,7 @@ public class HeroController : MonoBehaviour,IInteractable
         Item potion = HealerController.instance.CarriedItem;
         if (potion !=null && potion is Potion)
         {
+            soundManager.SoudPotionBreack();
             Affliction protection = ((Potion)potion).protection;
             if (_isCursed && !(protection is CurseAffliction)) TakeAffliction(protection);
             else TakeProtection(protection);

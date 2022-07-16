@@ -10,11 +10,15 @@ public class EndGamePanelScript : MonoBehaviour
     [SerializeField] private GameObject _defeatPanel;
     #endregion
 
+    #region Private
+    SoundManager soundManager;
+    #endregion
+
     #region Unity Lifecycle
 
     void Awake()
     {
-        
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     void Start()
@@ -38,10 +42,12 @@ public class EndGamePanelScript : MonoBehaviour
             _victoryStarsPanel.GetChild(i).GetChild(0).gameObject.SetActive(true);
         }
         _victoryPanel.SetActive(true);
+        soundManager.SoundVictory();
     }
 
     public void DisplayDefeatUI() {
         _defeatPanel.SetActive(true);
+        soundManager.SoundDefeat();
     }
 
     #endregion

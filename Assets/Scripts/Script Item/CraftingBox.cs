@@ -27,6 +27,13 @@ public class CraftingBox : MonoBehaviour, IInteractable
 
     public bool Crafting { get => _crafting; set => _crafting = value; }
 
+    SoundManager soundManager;
+
+    void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
+
     private void Start()
     {
         playerInputActions = new PlayerInputActions();
@@ -60,6 +67,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
             else
             {
                 AddItemInSlot(carriedIngredient);
+                soundManager.SoundWaterPlouf();
             }
 
             //check si la recette est valide apres avoir mis l'ingredient qu'il avait dans les mains
@@ -89,6 +97,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
                         {
                             _crafting = true;
                             _matchedRecipe = recipe;
+                            soundManager.SoundPotionFill();
                             break;
                         }
                     }

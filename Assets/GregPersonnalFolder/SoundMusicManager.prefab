@@ -79,14 +79,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordslash: {fileID: 8300000, guid: df6b0562345294f49b90166cbfbab551, type: 3}
+  heal: {fileID: 8300000, guid: 688d0a1cc334cd844a0513b31687d214, type: 3}
   buttonclic: {fileID: 8300000, guid: 41a02caa707570742b0f6d1f45cd2278, type: 3}
   buttonclicback: {fileID: 8300000, guid: 8cdb4d7834475e545bb35d520f5485b6, type: 3}
   victory: {fileID: 8300000, guid: 9cca6db46360eb2439f5ee055e30eaaa, type: 3}
   defeat: {fileID: 8300000, guid: 6403b5e4687711848810fedafcf416f6, type: 3}
   potionfill: {fileID: 8300000, guid: 5798050015f387246a704f047376d330, type: 3}
+  waterplouf: {fileID: 8300000, guid: bf3aed8bdc4522f428629f0ae717994a, type: 3}
   potionbreacks:
   - {fileID: 8300000, guid: 4d23c4247abcb29408420fd61e06a391, type: 3}
   - {fileID: 8300000, guid: c9cf5af83608b2349b83bb3143fd4ebe, type: 3}
+  crunchingIngredients:
+  - {fileID: 8300000, guid: 6000f6e918f58f247a7e852871d00395, type: 3}
+  - {fileID: 8300000, guid: b4d3a61708f013941b5ab184cb0bbd85, type: 3}
+  - {fileID: 8300000, guid: 9ce46fc2cf7804e498a18ae19b8c68f0, type: 3}
   take: {fileID: 0}
   drop: {fileID: 0}
 --- !u!82 &5888834747608113433

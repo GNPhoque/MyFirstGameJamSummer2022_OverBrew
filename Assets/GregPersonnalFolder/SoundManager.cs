@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 {
     [Header("BattleSounds")] 
     [SerializeField] AudioClip swordslash;
+    [SerializeField] AudioClip heal;
+
 
     [Header("UI and scene sounds")]
     [SerializeField] AudioClip buttonclic;
@@ -16,7 +18,9 @@ public class SoundManager : MonoBehaviour
 
     [Header("laboratory sounds")]
     [SerializeField] AudioClip potionfill;
+    [SerializeField] AudioClip waterplouf;
     [SerializeField] AudioClip[] potionbreacks;
+    [SerializeField] AudioClip[] crunchingIngredients;
     [SerializeField] AudioClip take;
     [SerializeField] AudioClip drop;
 
@@ -30,6 +34,10 @@ public class SoundManager : MonoBehaviour
     public void SoundSwordslash()
     {
         audio.PlayOneShot(swordslash);
+    }
+    public void SoundHeal()
+    {
+        audio.PlayOneShot(heal);
     }
     #endregion
     #region UIandSceneSounds
@@ -55,9 +63,17 @@ public class SoundManager : MonoBehaviour
     {
         audio.PlayOneShot(potionfill);
     }
+    public void SoundWaterPlouf()
+    {
+        audio.PlayOneShot(waterplouf);
+    }
     public void SoudPotionBreack()
     {
         audio.PlayOneShot(potionbreacks[Random.Range(0, potionbreacks.Length)]);
+    }
+    public void SoudCrunchingIngredients()
+    {
+        audio.PlayOneShot(crunchingIngredients[Random.Range(0, crunchingIngredients.Length)]);
     }
     public void SoundTake()
     {
