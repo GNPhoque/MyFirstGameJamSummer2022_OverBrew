@@ -40,6 +40,7 @@ public class HeroController : MonoBehaviour,IInteractable
     #endregion
     
     SoundManager soundManager;
+    bool healthIsBelowZero;
 
     #region Unity Lifecycle
 
@@ -49,6 +50,8 @@ public class HeroController : MonoBehaviour,IInteractable
 
         if (_instance == null) _instance = this;
         else Destroy(gameObject);
+
+        _instance.healthIsBelowZero = false;
 
         _transform = transform;
         _maxHealth = _health;
@@ -67,7 +70,8 @@ public class HeroController : MonoBehaviour,IInteractable
 
     void Update()
     {
-        if (_health <= 0) {
+        if (_health <= 0 && !healthIsBelowZero) {
+            healthIsBelowZero = true;
             OnDefeat?.Invoke();
             Time.timeScale = 0;
         }

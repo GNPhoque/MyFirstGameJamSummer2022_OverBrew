@@ -9,8 +9,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private EnemyInfo[] _enemyWave;
     [SerializeField] private Transform _spawnPoint;
-    
+
     #endregion
+
+    bool spawnpointHasNoChild;
 
     #region Singleton
     private static EnemySpawner _instance;
@@ -32,6 +34,9 @@ public class EnemySpawner : MonoBehaviour
         Time.timeScale = 1;
         if (_instance == null) _instance = this;
         else Destroy(gameObject);
+
+        _instance.spawnpointHasNoChild = false;
+
         _enemyCollider = _enemyPrefab.GetComponent<BoxCollider2D>();
     }
 
@@ -54,7 +59,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 SpawnEnemy();
             }
-        } else if(_spawnPoint.childCount == 0) {
+        } else if(_spawnPoint.childCount == 0 && !spawnpointHasNoChild) 
+        {
+            spawnpointHasNoChild = true;
             OnVictory.Invoke();
             Time.timeScale = 0;
         }
