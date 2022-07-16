@@ -14,7 +14,7 @@ public class HealerController : MonoBehaviour
 	[SerializeField]
 	LayerMask interactableLayerMask;
 	[SerializeField]
-	SlideScript slidablePanel;
+	SlideScript _slidablePanel;
 
 	Rigidbody2D rb;
 	SpriteRenderer _spriteRenderer;
@@ -45,7 +45,12 @@ public class HealerController : MonoBehaviour
 		inputs = new PlayerInputActions();
 	}
 
-	private void OnEnable()
+    private void Start()
+    {
+		_slidablePanel.Slide();
+    }
+
+    private void OnEnable()
 	{
 		inputs.Player.Move.performed += Move_performed;
 		inputs.Player.Move.canceled += Move_performed;
@@ -127,7 +132,7 @@ public class HealerController : MonoBehaviour
 
 	private void Action3_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
 	{
-		slidablePanel.Slide();
+		_slidablePanel.Slide();
 	}
 
 	private void Action3_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
