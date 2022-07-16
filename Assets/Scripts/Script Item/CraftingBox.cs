@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class CraftingBox : MonoBehaviour, IInteractable
 {
+    [SerializeField] private CraftingBoxType _craftingBoxType;
     [SerializeField] private float _craftingTimeStandingStill;
     [SerializeField] private float _craftingTime;
     [SerializeField] private RecipeScriptableObject[] craftingRecipeArray;
