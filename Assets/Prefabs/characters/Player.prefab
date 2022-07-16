@@ -127,6 +127,7 @@ MonoBehaviour:
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _slidablePanel: {fileID: 0}
   currentItemText: {fileID: 0}
 --- !u!61 &2125819062
 BoxCollider2D:

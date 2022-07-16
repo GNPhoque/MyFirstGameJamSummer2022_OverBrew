@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         if (_instance == null) _instance = this;
         else Destroy(gameObject);
         _enemyCollider = _enemyPrefab.GetComponent<BoxCollider2D>();
@@ -55,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
             }
         } else if(_spawnPoint.childCount == 0) {
             OnVictory.Invoke();
+            Time.timeScale = 0;
         }
     }
 

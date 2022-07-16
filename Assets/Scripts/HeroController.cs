@@ -11,6 +11,9 @@ public class HeroController : MonoBehaviour,IInteractable
     [SerializeField] private float _damage;
     [SerializeField] private float _attackDelay;
     [SerializeField] private LayerMask _enemyLayerMask;
+    [Range(0,1)]public float _firstStarPercent;
+    [Range(0,1)]public float _secondStarPercent;
+    [Range(0,1)]public float _thirdStarPercent;
     #endregion
 
     #region Getters
@@ -31,6 +34,7 @@ public class HeroController : MonoBehaviour,IInteractable
 
     #region Event
     public event Action<float,float> OnHealthChange;
+    public event Action OnDefeat;
     public event Action OnHeroUpdate;
     public event Action<List<Affliction>, List<Affliction>> OnEffectApplied;
     #endregion
@@ -54,10 +58,15 @@ public class HeroController : MonoBehaviour,IInteractable
 
     void Start()
     {
+        
     }
 
     void Update()
     {
+        if (_health <= 0) {
+            OnDefeat.Invoke();
+            Time.timeScale = 0;
+        }
         OnHeroUpdate?.Invoke();
 
         float raycastLength = _boxCollider.size.x * 0.5f+.1f;
@@ -96,8 +105,19 @@ public class HeroController : MonoBehaviour,IInteractable
 
     private void HealthModification(float value) {
         _health -= value;
-         _health = Mathf.Clamp(_health, 0f, _maxHealth);
+        _health = Mathf.Clamp(_health, 0f, _maxHealth);
+        UpdateCurrentStar();
         OnHealthChange?.Invoke(_health,_maxHealth);
+    }
+
+    private void UpdateCurrentStar() {
+        float healthPercent = _health/_maxHealth;
+        if (healthPercent >= _thirdStarPercent)
+            _currentStar = 3;
+        else if (healthPercent >= _secondStarPercent)
+            _currentStar = 2;
+        else if (healthPercent >= _firstStarPercent)
+            _currentStar = 1;
     }
 
     public void TakeAffliction(Affliction affliction) {
@@ -166,13 +186,13 @@ public class HeroController : MonoBehaviour,IInteractable
     #region Private & Protected
     private List<Affliction> _afflictionList = new List<Affliction>();
     private List<Affliction> _protectionList = new List<Affliction>();
-    private float _maxHealth;
-    private float _lastAttackTime;
+    private float _maxHealth, _lastAttackTime;
     [HideInInspector] public bool _isCursed = false;
     private Transform _transform;
     private BoxCollider2D _boxCollider;
     private EnemyController _currentEnemyController;
     [HideInInspector] public float _currentAttackDelay;
+    [HideInInspector] public int _currentStar;
     [HideInInspector] public float _currentDamage;
     //[HideInInspector] public float _currentHealModifier = -1;
     [HideInInspector] public float _currentDamageTakenModifier = 1;
