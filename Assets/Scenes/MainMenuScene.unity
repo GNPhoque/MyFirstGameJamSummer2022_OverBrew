@@ -1175,7 +1175,19 @@ MonoBehaviour:
   m_Value: -10
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 145347504}
+        m_TargetAssemblyTypeName: SoundMusicManager, Assembly-CSharp
+        m_MethodName: UpdatMusic
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &568666529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,7 +2032,19 @@ MonoBehaviour:
   m_Value: -10
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 145347504}
+        m_TargetAssemblyTypeName: SoundMusicManager, Assembly-CSharp
+        m_MethodName: UpdateSFX
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1125784685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,7 +2135,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 145347504}
+        m_TargetAssemblyTypeName: SoundMusicManager, Assembly-CSharp
+        m_MethodName: UpdateMaster
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1126842914
 GameObject:
   m_ObjectHideFlags: 0

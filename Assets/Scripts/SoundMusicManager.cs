@@ -41,21 +41,36 @@ public class SoundMusicManager : MonoBehaviour
         _audioMixer.SetFloat("Effects", _SFXVolume);
     }
 
-    void Update()
-    {
-        //Récupération des sliders
-        float _MasterVolume = _MasterSliderVolume.value;
-        float _MusicVolume = _MusicSliderVolume.value;
-        float _SFXVolume = _SFXSliderVolume.value;
+    //void Update()
+    //{
+    //    //Récupération des sliders
+    //    float _MusicVolume = _MusicSliderVolume.value;
+    //    float _SFXVolume = _SFXSliderVolume.value;
 
-        //Attributions des valeurs à l'audiomixer
-        _audioMixer.SetFloat("Master", _MasterVolume);
-        _audioMixer.SetFloat("Music", _MusicVolume);
-        _audioMixer.SetFloat("Effects", _SFXVolume);
+    //    //Attributions des valeurs à l'audiomixer
+    //    _audioMixer.SetFloat("Music", _MusicVolume);
+    //    _audioMixer.SetFloat("Effects", _SFXVolume);
 
-        //Sauvegarde des prefs
-        PlayerPrefs.SetFloat("MasterVolumeMixer", _MasterVolume);
-        PlayerPrefs.SetFloat("MusicVolumeMixer", _MusicVolume);
-        PlayerPrefs.SetFloat("SFXVolumeMixer", _SFXVolume);
+    //    //Sauvegarde des prefs
+    //    PlayerPrefs.SetFloat("MusicVolumeMixer", _MusicVolume);
+    //    PlayerPrefs.SetFloat("SFXVolumeMixer", _SFXVolume);
+    //}
+
+    public void UpdateMaster(float value)
+	{
+        _audioMixer.SetFloat("Master", value);
+        PlayerPrefs.SetFloat("MasterVolumeMixer", value);
+    }
+
+    public void UpdatMusic(float value)
+	{
+        _audioMixer.SetFloat("Music", value);
+        PlayerPrefs.SetFloat("MusicVolumeMixer", value);
+    }
+
+    public void UpdateSFX(float value)
+	{
+        _audioMixer.SetFloat("Effects", value);
+        PlayerPrefs.SetFloat("SFXVolumeMixer", value);
     }
 }
