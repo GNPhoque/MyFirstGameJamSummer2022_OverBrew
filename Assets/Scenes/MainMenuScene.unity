@@ -407,10 +407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4686665fca48f1042adb12933deb2fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 0}
-  _MasterSliderVolume: {fileID: 0}
-  _MusicSliderVolume: {fileID: 0}
-  _SFXSliderVolume: {fileID: 0}
+  _audioMixer: {fileID: 24100000, guid: dc7b5c29761740a4489e639f8a98821f, type: 2}
+  _MasterSliderVolume: {fileID: 1125784687}
+  _MusicSliderVolume: {fileID: 429997418}
+  _SFXSliderVolume: {fileID: 1043168555}
 --- !u!1 &164639235
 GameObject:
   m_ObjectHideFlags: 0

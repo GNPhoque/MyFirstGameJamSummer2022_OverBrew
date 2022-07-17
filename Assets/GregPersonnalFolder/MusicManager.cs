@@ -13,7 +13,8 @@ public class MusicManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = playlist[0];
-        audioSource.Play();
+        if (!audioSource.isPlaying)
+            audioSource.Play();
     }
 
     private void Update()
