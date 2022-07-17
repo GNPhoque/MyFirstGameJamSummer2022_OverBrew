@@ -398,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: bf8fab64bb99108428a40dce3e3ce516, type: 2}
+      objectReference: {fileID: 11400000, guid: c9d9323a76d9d404c8d16f486df20893, type: 2}
     - target: {fileID: 7525594233654314177, guid: d115f088b27a26946a93a8781a15ed60, type: 3}
       propertyPath: _enemyWave.Array.data[1]
       value: 
@@ -2288,7 +2288,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6001373863105210669, guid: 61c35dbce9e06bc46bc4af9d7ac4d27b, type: 3}
       propertyPath: recipes.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6001373863105210669, guid: 61c35dbce9e06bc46bc4af9d7ac4d27b, type: 3}
       propertyPath: recipes.Array.data[1]
