@@ -16,6 +16,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4440641ae8b65fb499b9206e8888cf25, type: 2}
     - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
+      propertyPath: _craftingBoxType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875514246457191150, guid: 0f5cf1c21a069c744a98b806621cb20c, type: 3}
       propertyPath: _craftingTimeStandingStill
       value: 1
       objectReference: {fileID: 0}

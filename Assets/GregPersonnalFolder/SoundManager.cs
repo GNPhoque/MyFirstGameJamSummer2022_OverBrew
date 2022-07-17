@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour
     [Header("laboratory sounds")]
     [SerializeField] AudioClip potionfill;
     [SerializeField] AudioClip waterplouf;
+    [SerializeField] AudioClip cauldroncrafting;
     [SerializeField] AudioClip[] potionbreacks;
     [SerializeField] AudioClip[] crunchingIngredients;
     [SerializeField] AudioClip take;
@@ -63,9 +64,24 @@ public class SoundManager : MonoBehaviour
     {
         audio.PlayOneShot(potionfill);
     }
-    public void SoundWaterPlouf()
+    public void SoundWaterPlouf(CraftingBoxType craftingBoxType)
     {
-        audio.PlayOneShot(waterplouf);
+        if(craftingBoxType == CraftingBoxType.CAULDRON || craftingBoxType == CraftingBoxType.ALEMBIC) { audio.PlayOneShot(waterplouf); }
+        if (craftingBoxType == CraftingBoxType.MORTAR) { SoudCrunchingIngredients(); }
+
+    }
+    public void SoundRecipeCrafting(CraftingBoxType craftingBoxType)
+    {
+        if (craftingBoxType == CraftingBoxType.CAULDRON || craftingBoxType == CraftingBoxType.ALEMBIC) { audio.PlayOneShot(cauldroncrafting); }
+        if (craftingBoxType == CraftingBoxType.MORTAR) {  }
+
+    }
+
+    public void SoundRecipeCrafted(CraftingBoxType craftingBoxType)
+    {
+        if (craftingBoxType == CraftingBoxType.CAULDRON || craftingBoxType == CraftingBoxType.ALEMBIC) { audio.PlayOneShot(potionfill); }
+        if (craftingBoxType == CraftingBoxType.MORTAR){ SoudCrunchingIngredients(); }
+
     }
     public void SoudPotionBreack()
     {

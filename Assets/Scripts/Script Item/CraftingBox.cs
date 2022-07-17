@@ -68,7 +68,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
             else
             {
                 AddItemInSlot(carriedIngredient);
-                soundManager.SoundWaterPlouf();
+                soundManager.SoundWaterPlouf(_craftingBoxType);
             }
 
             //check si la recette est valide apres avoir mis l'ingredient qu'il avait dans les mains
@@ -98,7 +98,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
                         {
                             _crafting = true;
                             _matchedRecipe = recipe;
-                            soundManager.SoundPotionFill();
+                            soundManager.SoundRecipeCrafting(_craftingBoxType);
                             break;
                         }
                     }
@@ -148,7 +148,7 @@ public class CraftingBox : MonoBehaviour, IInteractable
         ingredientSpriteRenderer.sprite = result.itemSprite;
         /*ingredientSpriteRenderer.sortingOrder = 1;
         ingredientGraphic.transform.localScale = new Vector3(2,2,1);*/
-        
+        soundManager.SoundRecipeCrafted(_craftingBoxType);
         result.itemTransform = ingredientGraphic.transform;
         _craftingResult = result;
     }
