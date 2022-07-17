@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Root shavings
   m_EditorClassIdentifier: 
   itemName: Root shavings
-  itemSprite: {fileID: 21300000, guid: a04d9f41d23c9924c9e6ed5a2b9e0224, type: 3}
+  itemSprite: {fileID: 21300000, guid: 2dc46b79b16b0bb43886929ffe2ad917, type: 3}
   itemTransform: {fileID: 0}

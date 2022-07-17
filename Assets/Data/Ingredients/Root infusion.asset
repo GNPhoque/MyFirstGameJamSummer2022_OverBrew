@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Root infusion
   m_EditorClassIdentifier: 
   itemName: Root infusion
-  itemSprite: {fileID: 21300000, guid: f9bb87668e703c44bb17cb6e49ba6e17, type: 3}
+  itemSprite: {fileID: 21300000, guid: 49193122054c432478d9432dcb8d4520, type: 3}
   itemTransform: {fileID: 0}

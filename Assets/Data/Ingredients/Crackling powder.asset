@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Crackling powder
   m_EditorClassIdentifier: 
   itemName: Crackling powder
-  itemSprite: {fileID: 21300000, guid: 49246c25a95c4f0478790a1ebd63e693, type: 3}
+  itemSprite: {fileID: 21300000, guid: b50bb5929e4d2c248b6efa16bc665787, type: 3}
   itemTransform: {fileID: 0}

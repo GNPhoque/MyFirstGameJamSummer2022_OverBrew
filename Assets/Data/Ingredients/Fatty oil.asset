@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Fatty oil
   m_EditorClassIdentifier: 
   itemName: Fatty oil
-  itemSprite: {fileID: 21300000, guid: 6fb570d18c421f24d914e01acffedf22, type: 3}
+  itemSprite: {fileID: 21300000, guid: c40f65ef297bfcd4ca1e4045f6adf838, type: 3}
   itemTransform: {fileID: 0}

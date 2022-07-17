@@ -57,6 +57,7 @@ public class HeroController : MonoBehaviour,IInteractable
         _maxHealth = _health;
 
         _boxCollider = GetComponent<BoxCollider2D>();
+        _animator = GetComponentInChildren<Animator>();
 
         // initalise values
         _currentAttackDelay = _attackDelay;
@@ -165,6 +166,7 @@ public class HeroController : MonoBehaviour,IInteractable
     {
         if (Time.time - _lastAttackTime >= _currentAttackDelay)
         {
+            _animator.SetTrigger("isAttacking");
             enemyController.TakeDamage(_currentDamage);
             _lastAttackTime = Time.time;
         }
@@ -200,6 +202,7 @@ public class HeroController : MonoBehaviour,IInteractable
     [HideInInspector] public bool _isCursed = false;
     private Transform _transform;
     private BoxCollider2D _boxCollider;
+    private Animator _animator;
     private EnemyController _currentEnemyController;
     [HideInInspector] public float _currentAttackDelay;
     [HideInInspector] public int _currentStar;
