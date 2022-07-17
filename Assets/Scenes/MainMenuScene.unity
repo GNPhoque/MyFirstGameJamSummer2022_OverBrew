@@ -744,7 +744,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2997341400492801520, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_text
-      value: OPTION
+      value: OPTIONS
       objectReference: {fileID: 0}
     - target: {fileID: 2997341400492801520, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_margin.z
@@ -868,11 +868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2997341402086331206, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 191.2222
+      value: 222.4306
       objectReference: {fileID: 0}
     - target: {fileID: 2997341402086331206, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 44.2161
+      value: 45.9287
       objectReference: {fileID: 0}
     - target: {fileID: 2997341402086331206, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -908,7 +908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2997341402086331206, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 136.3
+      value: 137.15631
       objectReference: {fileID: 0}
     - target: {fileID: 2997341402086331206, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -924,7 +924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2997341402086331207, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
       propertyPath: m_Name
-      value: OptionButton
+      value: OptionsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e7c94f716020d46ba7692d53436ea8, type: 3}
@@ -1169,10 +1169,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1962204290}
   m_HandleRect: {fileID: 352782699}
   m_Direction: 0
-  m_MinValue: -80
+  m_MinValue: -40
   m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: -15
+  m_Value: -10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2014,10 +2014,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 388137039}
   m_HandleRect: {fileID: 1366742480}
   m_Direction: 0
-  m_MinValue: -80
+  m_MinValue: -40
   m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: -15
+  m_Value: -10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2105,8 +2105,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 168711543}
   m_HandleRect: {fileID: 1447542201}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: -10
+  m_MaxValue: 10
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -3068,7 +3068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914256543}
   m_Layer: 5
-  m_Name: OptionMenu
+  m_Name: OptionsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
