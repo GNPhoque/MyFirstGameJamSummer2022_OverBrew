@@ -53,9 +53,9 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 2147483648
-  _firstStarPercent: 0
-  _secondStarPercent: 0
-  _thirdStarPercent: 0
+  _firstStarPercent: 0.2
+  _secondStarPercent: 0.5
+  _thirdStarPercent: 0.7
   _isCursed: 0
   _currentAttackDelay: 0
   _currentStar: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2899599}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2, y: 2.5799198}
   m_EdgeRadius: 0
 --- !u!1 &8479525514275302735
 GameObject:
